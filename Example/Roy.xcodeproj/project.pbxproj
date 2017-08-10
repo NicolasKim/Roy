@@ -14,6 +14,7 @@
 		607FACE01AFB9204008FA782 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 607FACDE1AFB9204008FA782 /* LaunchScreen.xib */; };
 		607FACEC1AFB9204008FA782 /* Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACEB1AFB9204008FA782 /* Tests.swift */; };
 		615030F0076DFC63D84A3299 /* Pods_Roy_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E582328F4C8620621AC6DAF6 /* Pods_Roy_Example.framework */; };
+		9916E91E1F3C47990063251D /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9916E91D1F3C47990063251D /* SecondViewController.swift */; };
 		E63973DF16171715E349C113 /* Pods_Roy_Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 717E5EDAEED46BEBDFFD115F /* Pods_Roy_Tests.framework */; };
 /* End PBXBuildFile section */
 
@@ -28,10 +29,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		083C3A51A10156B3172671FF /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; name = README.md; path = ../README.md; sourceTree = "<group>"; };
+		083C3A51A10156B3172671FF /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
 		24FB60024C91923E1750C433 /* Pods-Roy_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Roy_Example.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Roy_Example/Pods-Roy_Example.debug.xcconfig"; sourceTree = "<group>"; };
 		3CAF77BE750B3FB5B77E7200 /* Pods-Roy_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Roy_Tests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Roy_Tests/Pods-Roy_Tests.debug.xcconfig"; sourceTree = "<group>"; };
-		4D0675FEF5C8853F5C1FE66B /* Roy.podspec */ = {isa = PBXFileReference; includeInIndex = 1; name = Roy.podspec; path = ../Roy.podspec; sourceTree = "<group>"; };
+		4D0675FEF5C8853F5C1FE66B /* Roy.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = Roy.podspec; path = ../Roy.podspec; sourceTree = "<group>"; };
 		51DA9F56BBFA3BC2EC91CE81 /* Pods-Roy_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Roy_Example.release.xcconfig"; path = "Pods/Target Support Files/Pods-Roy_Example/Pods-Roy_Example.release.xcconfig"; sourceTree = "<group>"; };
 		607FACD01AFB9204008FA782 /* Roy_Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Roy_Example.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		607FACD41AFB9204008FA782 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -44,7 +45,8 @@
 		607FACEA1AFB9204008FA782 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		607FACEB1AFB9204008FA782 /* Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tests.swift; sourceTree = "<group>"; };
 		717E5EDAEED46BEBDFFD115F /* Pods_Roy_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Roy_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		94DC68BD331772E542B9854A /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
+		94DC68BD331772E542B9854A /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
+		9916E91D1F3C47990063251D /* SecondViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SecondViewController.swift; sourceTree = "<group>"; };
 		9D19206E80E9BF964D9D5A6C /* Pods-Roy_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Roy_Tests.release.xcconfig"; path = "Pods/Target Support Files/Pods-Roy_Tests/Pods-Roy_Tests.release.xcconfig"; sourceTree = "<group>"; };
 		E582328F4C8620621AC6DAF6 /* Pods_Roy_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Roy_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -115,6 +117,7 @@
 			children = (
 				607FACD51AFB9204008FA782 /* AppDelegate.swift */,
 				607FACD71AFB9204008FA782 /* ViewController.swift */,
+				9916E91D1F3C47990063251D /* SecondViewController.swift */,
 				607FACD91AFB9204008FA782 /* Main.storyboard */,
 				607FACDC1AFB9204008FA782 /* Images.xcassets */,
 				607FACDE1AFB9204008FA782 /* LaunchScreen.xib */,
@@ -361,6 +364,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9916E91E1F3C47990063251D /* SecondViewController.swift in Sources */,
 				607FACD81AFB9204008FA782 /* ViewController.swift in Sources */,
 				607FACD61AFB9204008FA782 /* AppDelegate.swift in Sources */,
 			);

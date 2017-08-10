@@ -1,0 +1,16 @@
+PODS:
+  - Roy (0.1.0)
+
+DEPENDENCIES:
+  - Roy (from `../`)
+
+EXTERNAL SOURCES:
+  Roy:
+    :path: "../"
+
+SPEC CHECKSUMS:
+  Roy: 3c04bf0ae8959fb7888add88f29a53ac134c4d57
+
+PODFILE CHECKSUM: d8c3654cce48e8d15e97660934b275d390cc76f2
+
+COCOAPODS: 1.2.1

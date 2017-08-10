@@ -7,13 +7,23 @@
 //
 
 import UIKit
+import Roy
+
 
 class SecondViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        
+        self.view.backgroundColor = UIColor.red;
+        
+        _ = self.roy.addRouter(scheme: "changecolor") { (c : UIColor) -> (Bool) in
+            self.view.backgroundColor = c
+            return true
+        }
+        
+        
+        
     }
 
     override func didReceiveMemoryWarning() {
