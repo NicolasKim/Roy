@@ -17,7 +17,7 @@ class SecondViewController: UIViewController {
         
         self.view.backgroundColor = UIColor.red;
         
-        _ = self.roy.addRouter(scheme: "changecolor") { (c : UIColor) -> (Bool) in
+        _ = self.roy.addRouter(scheme: "changecolor") { (c : UIColor) -> Bool in
             self.view.backgroundColor = c
             return true
         }

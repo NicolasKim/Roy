@@ -13,14 +13,48 @@ public typealias RoyTaskClosure<P,R> = (P)->(R)
 public typealias RoyReturnClosure<P> = (P)->(Void)
 
 
-
-
-
-
 public class RoyR: NSObject {
    
     fileprivate var schemeTaskMap : [String:Any] = [:]
-    
+
+    open func addRouter<P,R>(urlComponents:URLComponents , task:@escaping RoyTaskClosure<P,R>) -> Bool {
+
+        guard let s = urlComponents.scheme ,let h = urlComponents.host  else{
+#if DEBUG
+            print("url error")
+#endif
+            return false
+        }
+
+        let url = s.appending(h).appending(urlComponents.path)
+
+        self.schemeTaskMap[url] = task
+        return true
+    }
+
+    open func route<R>(urlComponents:URLComponents  , task:@escaping RoyReturnClosure<R>) -> Bool {
+
+        guard let s = urlComponents.scheme ,let h = urlComponents.host  else{
+#if DEBUG
+            print("url error")
+#endif
+            return false
+        }
+
+        let url = s.appending(h).appending(urlComponents.path)
+        var params : [String:String] = [:]
+        if  let items = urlComponents.queryItems  {
+            for item in items {
+                params[item.name] = item.value
+            }
+        }
+
+        return self.route(scheme: url, param: params, task: task)
+    }
+
+
+
+
     open func addRouter<P,R>(scheme:String , task:@escaping RoyTaskClosure<P,R>) -> Bool {
         //检查
         self.schemeTaskMap[scheme] = task
@@ -36,6 +70,21 @@ public class RoyR: NSObject {
         task(returnValue)
 
         return true
+    }
+
+
+    open func route<R>(url:String , task:@escaping RoyReturnClosure<R>) -> Bool {
+
+        let urlComponents = URLComponents(string: url)
+
+        guard  let comp = urlComponents else {
+#if DEBUG
+            print("scheme error")
+#endif
+            return false
+        }
+
+        return self.route(urlComponents: comp, task: task)
     }
 }
 

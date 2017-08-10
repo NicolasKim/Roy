@@ -1,5 +1,5 @@
 PODS:
-  - Roy (0.1.0)
+  - Roy (0.0.1)
 
 DEPENDENCIES:
   - Roy (from `../`)
@@ -9,7 +9,7 @@ EXTERNAL SOURCES:
     :path: "../"
 
 SPEC CHECKSUMS:
-  Roy: 3c04bf0ae8959fb7888add88f29a53ac134c4d57
+  Roy: b36328e512c6464cb42acbf2c0b15894ab05ed12
 
 PODFILE CHECKSUM: d8c3654cce48e8d15e97660934b275d390cc76f2
 
