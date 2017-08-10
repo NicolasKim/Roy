@@ -1,0 +1,11 @@
+use_frameworks!
+
+target 'Roy_Example' do
+  pod 'Roy', :path => '../'
+
+  target 'Roy_Tests' do
+    inherit! :search_paths
+
+    pod 'FBSnapshotTestCase'
+  end
+end
