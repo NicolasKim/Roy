@@ -500,6 +500,7 @@
 			baseConfigurationReference = 24FB60024C91923E1750C433 /* Pods-Roy_Example.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				HEADER_SEARCH_PATHS = "$(SRCROOT)/TestModule";
 				INFOPLIST_FILE = Roy/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				MODULE_NAME = ExampleApp;
@@ -514,6 +515,7 @@
 			baseConfigurationReference = 51DA9F56BBFA3BC2EC91CE81 /* Pods-Roy_Example.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				HEADER_SEARCH_PATHS = "$(SRCROOT)/TestModule";
 				INFOPLIST_FILE = Roy/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				MODULE_NAME = ExampleApp;

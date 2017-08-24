@@ -1,5 +1,7 @@
 use_frameworks!
 platform :ios, '8.0'
+workspace 'Roy.xcworkspace'
+
 
 target 'Roy_Example' do
   pod 'Roy', :path => '../'
@@ -9,4 +11,11 @@ target 'Roy_Example' do
 
 
   end
+end
+
+
+
+target 'TestModule' do
+    pod 'Roy', :path => '../'
+    project 'TestModule/TestModule.xcodeproj'
 end

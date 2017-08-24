@@ -8,90 +8,200 @@
 
 import UIKit
 
-public typealias RoyTaskClosure<P,R> = (P)->(R)
+public typealias RoyTaskClosure = ([String:Any]?)->Any
 
-public typealias RoyReturnClosure<P> = (P)->(Void)
+public typealias RoyReturnClosure = (Any?)->Void
 
 
 public class RoyR: NSObject {
    
-    fileprivate var schemeTaskMap : [String:Any] = [:]
+    fileprivate var urlTaskMap : [String:Any] = [:]
 
-    open func addRouter<P,R>(urlComponents:URLComponents , task:@escaping RoyTaskClosure<P,R>) -> Bool {
+    open func addRouter(url:URL , task:@escaping RoyTaskClosure) -> Bool {
 
-        guard let s = urlComponents.scheme ,let h = urlComponents.host  else{
+        guard let s = url.scheme ,let h = url.host  else{
 #if DEBUG
             print("url error")
 #endif
             return false
         }
 
-        let url = s.appending(h).appending(urlComponents.path)
+        let url = "\(s)://\(h)\(url.path)"
 
-        self.schemeTaskMap[url] = task
+        self.urlTaskMap[url] = task
         return true
     }
 
-    open func route<R>(urlComponents:URLComponents  , task:@escaping RoyReturnClosure<R>) -> Bool {
+    open func route(url:URL , param : [String:Any]?  , task:@escaping RoyReturnClosure) -> Bool {
 
-        guard let s = urlComponents.scheme ,let h = urlComponents.host  else{
+        guard let s = url.scheme ,let h = url.host  else{
 #if DEBUG
             print("url error")
 #endif
             return false
         }
 
-        let url = s.appending(h).appending(urlComponents.path)
-        var params : [String:String] = [:]
-        if  let items = urlComponents.queryItems  {
-            for item in items {
-                params[item.name] = item.value
-            }
+        let urlString = "\(s)://\(h)\(url.path)"
+
+        var newParam = url.params
+        if let p = param {
+            newParam.combine(p)
+        }
+        
+        
+        guard let t = self.urlTaskMap[urlString] as? RoyTaskClosure else {
+            
+            print("closure unmatched,url -> \(urlString)")
+
+            return false
         }
 
-        return self.route(scheme: url, param: params, task: task)
-    }
-
-
-
-
-    open func addRouter<P,R>(scheme:String , task:@escaping RoyTaskClosure<P,R>) -> Bool {
-        //检查
-        self.schemeTaskMap[scheme] = task
-        return true
-    }
-    
-    open func route<P,R>(scheme:String , param : P , task:@escaping RoyReturnClosure<R>) -> Bool {
-        
-        let t : RoyTaskClosure = self.schemeTaskMap[scheme] as! RoyTaskClosure<P,R>
-        
-        let returnValue = t(param)
+        let returnValue = t(newParam)
         
         task(returnValue)
 
         return true
+
     }
 
-
-    open func route<R>(url:String , task:@escaping RoyReturnClosure<R>) -> Bool {
-
-        let urlComponents = URLComponents(string: url)
-
-        guard  let comp = urlComponents else {
-#if DEBUG
-            print("scheme error")
-#endif
-            return false
+    
+    open func route(url:URL , param : [String:Any]? ) -> Any?{
+        guard let s = url.scheme ,let h = url.host  else{
+            #if DEBUG
+                print("url error")
+            #endif
+            return nil
         }
+        
+        let urlString = "\(s)://\(h)\(url.path)"
+        
+        
+        var newParam = url.params
+        if let p = param {
+            newParam.combine(p)
+        }
+        
+        
+        
+        
+        
+        guard let t = self.urlTaskMap[urlString] as? RoyTaskClosure else {
+            
+            print("closure unmatched,url -> \(urlString)")
+            
+            return nil
+        }
+        
+        let returnValue = t(newParam)
 
-        return self.route(urlComponents: comp, task: task)
+        return returnValue
     }
+    
+    
+
 }
 
 
 public class RoyGlobal: RoyR {
     static public let instance = RoyGlobal()
 }
+
+
+
+public protocol RoyProtocol : NSObjectProtocol {
+    init?(param : [String:Any]?)
+}
+
+
+/*
+ *  UIKit extension
+ */
+
+public extension RoyR{
+    public func addRouter(url:URL , viewController : RoyProtocol.Type) -> Bool{
+        let c : RoyTaskClosure = { (p : [String:Any]?) -> RoyProtocol? in
+            
+            if let vc = viewController.init(param: p) {
+                return vc
+            }
+            return nil
+        }
+        return self.addRouter(url: url, task: c)
+    }
+    
+    public func viewController(url:URL,param:[String:Any]?) -> RoyProtocol?{
+        return self.route(url: url, param: param) as? RoyProtocol
+    }
+    
+}
+
+public extension UIViewController{
+    
+    
+    public func present(url : URL, param : [String:Any]?, animated: Bool, completion: (() -> Void)?){
+        if let vc = RoyGlobal.instance.viewController(url: url, param: param) as? UIViewController{
+            self.present(vc, animated: animated, completion: completion)
+        }
+        else{
+#if DEBUG
+            print("URL:\(url) did not registed,or the object mapped with \(url) is not a viewcontroller")
+#endif
+        }
+    }
+}
+
+
+public extension UINavigationController{
+    public func pushViewController(url: URL , param : [String : Any] , animated: Bool){
+        if let vc = RoyGlobal.instance.viewController(url: url,param:param) as? UIViewController{
+            self.pushViewController(vc, animated: animated)
+        }
+        else{
+            #if DEBUG
+                print("URL:\(url) did not registed,or the object mapped with \(url) is not a viewcontroller")
+            #endif
+        }
+    }
+    
+    public func setViewControllers(urls : [URL], animated: Bool){
+        var vcs : [UIViewController] = []
+        for url in urls {
+            if let vc = RoyGlobal.instance.viewController(url: url,param:nil) as? UIViewController{
+                vcs.append(vc)
+            }
+            else{
+                #if DEBUG
+                    print("URL:\(url) did not registed,or the object mapped with \(url) is not a viewcontroller")
+                #endif
+            }
+        }
+        self.setViewControllers(vcs, animated: animated)
+    }
+}
+
+
+public extension UITabBarController{
+    
+    func setViewControllers(urls : [URL], animated: Bool){
+        var vcs : [UIViewController] = []
+        for url in urls {
+            if let vc = RoyGlobal.instance.viewController(url: url,param:nil) as? UIViewController{
+                vcs.append(vc)
+            }
+            else{
+                #if DEBUG
+                    print("URL:\(url) did not registed,or the object mapped with \(url) is not a viewcontroller")
+                #endif
+            }
+        }
+        self.setViewControllers(vcs, animated: animated)
+    }
+    
+}
+
+
+
+
 
 
 private var key: Void?
@@ -113,7 +223,29 @@ public extension NSObject{
 
 
 
+public extension URL{
+    var params : [String : Any]{
+        get{
+            var ps : [String:Any] = [:]
+            if let keyValues = self.query?.components(separatedBy: "&") {
+                for keyValue in keyValues {
+                    let kv = keyValue.components(separatedBy: "=")
+                    ps[kv.first!] = kv.last!
+                }
+            }
+            return ps;
+        }
+    }
+}
 
+
+public extension Dictionary{
+    mutating func combine(_ dict : Dictionary) {
+        for e in dict{
+            self.updateValue(e.value, forKey: e.key)
+        }
+    }
+}
 
 
 

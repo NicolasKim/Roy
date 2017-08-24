@@ -10,6 +10,7 @@ import UIKit
 
 import Roy
 
+import TestModule
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -19,15 +20,28 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         
-        let g = RoyGlobal.instance
-        _ = g.addRouter(scheme: "opensecond") { (s:String) -> UIViewController in
-            let s = SecondViewController()
-            return s
-        }
+        
+        RoyAppDelegate.sharedInstance.addModuleClass(TestModuleDelegate.self, host: "testmodule")
         
         
         
-        return true
+        
+        
+        
+        let vc = RoyAppDelegate.sharedInstance.module(host: "testmodule")?.viewController(path: "initializeviewcontroller", param: nil) as! UIViewController
+        
+        
+        
+//        let vc : RoyProtocol? = RoyGlobal.instance.route(url: URL(string: "Roy://testmodule/initializeviewcontroller")!, param: nil) as? RoyProtocol
+        
+        
+        
+        
+        self.window = UIWindow(frame: UIScreen.main.bounds)
+        self.window?.rootViewController = vc
+
+
+        return RoyAppDelegate.sharedInstance.application(application,didFinishLaunchingWithOptions:launchOptions)
     }
 
     func applicationWillResignActive(_ application: UIApplication) {
