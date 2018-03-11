@@ -98,7 +98,8 @@ public class RoyURLAnalyzer {
         var scheme : NSString?
         while !scanner.isAtEnd {
             if scanner.scanString("://", into: &scheme){
-                return url.substring(to: url.index(url.startIndex, offsetBy: scanner.scanLocation - 3))
+                let endIndex = url.index(url.startIndex, offsetBy: scanner.scanLocation - 3)
+                return String(url[..<endIndex])
             }
             scanner.scanLocation = scanner.scanLocation+1
         }
@@ -116,7 +117,10 @@ public class RoyURLAnalyzer {
                 if scanner.scanString("/", into: nil){
                     let start = url.index(url.startIndex, offsetBy: startIndex)
                     let end = url.index(url.startIndex,offsetBy:scanner.scanLocation-1)
-                    return url.substring(with: start..<end)
+                    
+                    return String(url[start..<end])
+                    
+//                    return url.substring(with: start..<end)
                 }
             }
             scanner.scanLocation = scanner.scanLocation+1
@@ -153,7 +157,7 @@ public class RoyURLAnalyzer {
             if endIndex > -1{
                 end = url.index(url.startIndex, offsetBy: endIndex-1)
             }
-            return url.substring(with: start..<end)
+            return String(url[start..<end])
         }
         return nil
     }
@@ -179,7 +183,8 @@ public class RoyURLAnalyzer {
             scanner.scanLocation = scanner.scanLocation+1
         }
         if startIndex != -1 {
-        	let paramStr = url.substring(from: url.index(url.startIndex, offsetBy: startIndex))
+            let paramStr = url[url.index(url.startIndex, offsetBy: startIndex)...]
+//            let paramStr = url.substring(from: )
             let keyValuePairs = paramStr.split(separator: "&").map(String.init)
             var params:[RoyURLParam] = []
             for keyValuePairStr in keyValuePairs {
@@ -206,7 +211,7 @@ public class RoyURLAnalyzer {
                         if subScanner.scanString("?", into: nil) {
                             let start = valValidate.index(valValidate.startIndex, offsetBy: startIndex)
                             let end = valValidate.index(valValidate.startIndex,offsetBy:subScanner.scanLocation-1)
-                            type = RoyURLParamType(rawValue: valValidate.substring(with: start..<end))
+                            type = RoyURLParamType(rawValue: String(valValidate[start..<end]))
                             hasQuestionMark = true
                         }
 						if subScanner.scanString(">", into: nil) {

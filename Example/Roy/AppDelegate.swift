@@ -20,11 +20,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         
         RoyAppDelegate.sharedInstance.addModuleClass(TestModuleDelegate.self, host: "testmodule")
-        let vc = RoyAppDelegate.sharedInstance.module(host: "testmodule")?.viewController(path: "initializeviewcontroller", param: nil) as! UIViewController
-        self.window = UIWindow(frame: UIScreen.main.bounds)
-        self.window?.rootViewController = vc
-
-
+        if let vc = RoyAppDelegate.sharedInstance.module(host: "testmodule")?.viewController(path: "initializeviewcontroller", param: nil) as? UIViewController {
+            self.window = UIWindow(frame: UIScreen.main.bounds)
+            self.window?.rootViewController = vc
+        }
         return RoyAppDelegate.sharedInstance.application(application,didFinishLaunchingWithOptions:launchOptions)
     }
 
