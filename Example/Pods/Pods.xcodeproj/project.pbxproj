@@ -26,7 +26,7 @@
 		28F36F2C8CFD1FEAD843F3AC883D2C8E /* Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9455AF8CFFBA8AAC21B200DA102B3C2E /* Date.swift */; };
 		2DCB7618E3E194465FE540C628839E62 /* Persistable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D8C54FE3630FFB72F0E79D833161E17 /* Persistable.swift */; };
 		2E05D4E88734788B2E052FA2587B3966 /* RowConvertible+TableMapping.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BC75CF458FF4B719759540D1F95BF8E /* RowConvertible+TableMapping.swift */; };
-		33D39467B1D7AB7C09FA6D60D642E856 /* Roy.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5737BA997E3EB08F837E9304EE42065 /* Roy.swift */; };
+		33D39467B1D7AB7C09FA6D60D642E856 /* Roy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26D5A7B61E6115B4391E4879AD7BCB72 /* Roy.swift */; };
 		344A314626B7C973F1602E7A75D5A90E /* Record.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECDA73EF1DFFEAD769B9589A1FF8BEFC /* Record.swift */; };
 		345CCE1B24F216532036A9440DFE583B /* SQLExpression.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57EFB00D44631C275B3827B677532A74 /* SQLExpression.swift */; };
 		34ADE95086977296C865DC38D7E65125 /* FetchedRecordsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EDA716DD9A287E9A6006FC1549C5AAE /* FetchedRecordsController.swift */; };
@@ -58,15 +58,17 @@
 		77F799C6246D7749846EBC66FF388487 /* Pods-Roy_Example-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = A793FD62A73B677CD5D7DE0CA7CB76C9 /* Pods-Roy_Example-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		784808AE676E5D04AAA12F39E7CD3A05 /* Statement.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C8F9AECE172D76DCF5E0F5BDA815DC5 /* Statement.swift */; };
 		790B838EB407814B98F57EA5EE94609E /* SQLSelectable.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE542881CC7E7B8401D1953AE6241C52 /* SQLSelectable.swift */; };
-		7BAC9A86B34A37D3247E0CD3C4294629 /* Roy-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 8EA3C66FA976A5FF933D276C13D64B8A /* Roy-dummy.m */; };
+		7BAC9A86B34A37D3247E0CD3C4294629 /* Roy-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 50A794DB126919A99C4A3016233145CD /* Roy-dummy.m */; };
 		7FCD2956D7256FCBA3CE590BEA0F6C03 /* DatabaseRegion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60A3B0836F5903A4C069044A6EBB2CDB /* DatabaseRegion.swift */; };
-		804F6E55B71FF61B05823AC456ADA5F3 /* RoyUIExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42B7332BBF52DB99E6357C1570F435D0 /* RoyUIExtension.swift */; };
+		804F6E55B71FF61B05823AC456ADA5F3 /* RoyUIExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87AD706759637C77D599C35EF680DF97 /* RoyUIExtension.swift */; };
 		8269BCF92755E9BAAC48C2B70876EA23 /* grdb_config.h in Headers */ = {isa = PBXBuildFile; fileRef = 6449B8401A1150275C3DB8AE34C36257 /* grdb_config.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		879D8F98E04A8A7E8A2399FF5EE3CDB6 /* RoyAppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DE4DDCAE8017C321BDCFEDC663695C8 /* RoyAppDelegate.swift */; };
 		87BE14CDD27585A556E0CD594251B780 /* Fixits-0-84-0.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DBBE8AEF6E07901F766FA26C28AA352 /* Fixits-0-84-0.swift */; };
 		88342DA27A672E166A1075AA6D2E41C9 /* Fixits-0-90-1.swift in Sources */ = {isa = PBXBuildFile; fileRef = 914A2DB34426E8B254EF73FDA83D8BE7 /* Fixits-0-90-1.swift */; };
 		88CAA8836C42B490553E18DD71F49715 /* Persistable+Encodable.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5274E828423394147AD875AD764769D /* Persistable+Encodable.swift */; };
 		909069AA486DB86DFAA04FDE83367B8B /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 039ADBFF047DF8843C94BF8D571B714A /* UIKit.framework */; };
 		92C6C475B56943AFB70120DF0CA99AEF /* DatabaseValueConvertible+RawRepresentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D2E822CEF1102638BC2EC835E3F04DE /* DatabaseValueConvertible+RawRepresentable.swift */; };
+		94C91B7786749C7CC7B2ED5591967594 /* RoyModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C32A05BDCC679015324AE201BA638AF /* RoyModule.swift */; };
 		975FA6D5DDDFEC28E01FCFD09CCA79B0 /* SQLCollection.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2951918AA12314A9137C3183C7621E1 /* SQLCollection.swift */; };
 		99383DFEBE33EEF1905252396C860892 /* SQLFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF9E13D20FAD8AECA4AFD529FB9CDC0E /* SQLFunctions.swift */; };
 		9A2DB2818CBA87D11F533BBC7CD39A73 /* ReadWriteBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA654E6FC12A07BBFCD1FABD1281669A /* ReadWriteBox.swift */; };
@@ -102,14 +104,14 @@
 		CD297FF9B2E0F17473EEAF661D5E0440 /* RowConvertible+Decodable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04DBA4848D90D636C08E2184ED1DCCC5 /* RowConvertible+Decodable.swift */; };
 		CD71D54A8CFF77B1588CCDB9E33929AB /* DatabaseValueConvertible+ReferenceConvertible.swift in Sources */ = {isa = PBXBuildFile; fileRef = 413492DCFF85EC0C4D4299BEA602DD62 /* DatabaseValueConvertible+ReferenceConvertible.swift */; };
 		D0DAA87C9D7DD865ED5CEF92B5CBC491 /* Pods-TestModule-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 4544B432BE92369E74D26F50AC54362D /* Pods-TestModule-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		D13BCFC90CBE3D62B1F2661738D2D921 /* RoyDefaultLogSystem.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8CF6B7DB45487180196B147C0B531EF /* RoyDefaultLogSystem.swift */; };
+		D13BCFC90CBE3D62B1F2661738D2D921 /* RoyDefaultLogSystem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 469DDFECE0B5DC5DB836B4F8F6D49D97 /* RoyDefaultLogSystem.swift */; };
 		D3A12AD0EBF124386B97C6D1017A7DA6 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5695FA0CE72065C2FFFD764E7A5E2356 /* Foundation.framework */; };
 		D5EB0419FBB62EF80D337E1AB804BDBE /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC93A952C03336F1EB554C86E4DC96A4 /* Utils.swift */; };
 		D8E8966F8081CB7040B915CE49616514 /* RowConvertible.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1991C89C2E733008260F6DBCB6FE424B /* RowConvertible.swift */; };
 		D9182AF654566CC4BCF6938303E57CD3 /* FTS5TokenizerDescriptor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EE7AEA0D6E695CFF32B9D6B7D28ADEB /* FTS5TokenizerDescriptor.swift */; };
-		DAA43845324465EAC99565694DB5E5C1 /* RoyURLAnalyzer.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2D56DCA16A036ADA34D1347E9A21D82 /* RoyURLAnalyzer.swift */; };
+		DAA43845324465EAC99565694DB5E5C1 /* RoyURLAnalyzer.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD504A86C8FB800F74E07372042E0D93 /* RoyURLAnalyzer.swift */; };
 		DCFEB9129328738315A970B7353E10C9 /* SQLOperators.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53EF3165937E904F4A30331AD434E216 /* SQLOperators.swift */; };
-		DD052EBE649D65DDA1C181DDADE3A5C0 /* Roy-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 4136356E862EB54D04F35AA1A4D8E0DA /* Roy-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		DD052EBE649D65DDA1C181DDADE3A5C0 /* Roy-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 8C16E8A7C91C82796EBA30EF903C7DD8 /* Roy-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		E27A6ADF9470458E15BCBEC3B6C1CB39 /* FTS5+QueryInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97A1E02D3E9842D8224A93E2586FF80C /* FTS5+QueryInterface.swift */; };
 		E5E867E7A71C7DD3C7D49F986742A078 /* Result.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68EA50D5B090C932574A8EAC22264FD4 /* Result.swift */; };
 		EC409F14A09D7954E6A0E31A84A2D03F /* DatabaseValueConvertible+Encodable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7556022572221979118330AA27F339C7 /* DatabaseValueConvertible+Encodable.swift */; };
@@ -117,12 +119,10 @@
 		F03A0DDFD4234AA3F0D80BCFB1C7BC02 /* NSData.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7EAFF6136364F64DB2113FD313780ED /* NSData.swift */; };
 		F1DCADE29F27D9AE11E5A30BAFC2C8F3 /* SchedulingWatchdog.swift in Sources */ = {isa = PBXBuildFile; fileRef = 058A29D3113E92A165F62A4B75F17200 /* SchedulingWatchdog.swift */; };
 		F347AA285FD0A959A243D92EE7E0730B /* DatabaseError.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB13709FE7F98FB6A28863055F47E80F /* DatabaseError.swift */; };
-		F570D7F18AA9E9839C0297B2538713B7 /* RoyModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = F66C387C453B88D629603A1AD9583B6F /* RoyModule.swift */; };
 		F75698280B9ED810058BF08BE9EE20BB /* UUID.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FCC5D4D044DD010216FB2A7A096C4D9 /* UUID.swift */; };
 		F8491ED4710F64AC514D4CD0BBBA797A /* DatabaseMigrator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 613B2CD246DFB4B38A3D319A6C42796E /* DatabaseMigrator.swift */; };
 		FC1F9E4D5989CF0564B6834CAC73008A /* DatabaseValueConvertible.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CF35C422891027C7507F254C846B2EB /* DatabaseValueConvertible.swift */; };
 		FD31389FA4C5D599688AF7DCC2701074 /* DatabaseSnapshot.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE0AA3A59E40C8877D9C560A0435F432 /* DatabaseSnapshot.swift */; };
-		FE548AF0E49C5BA99A157399EAC47497 /* RoyAppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 624BB6967FA49ABC0C775502D14848A2 /* RoyAppDelegate.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -164,21 +164,16 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		007D60785D8D646478B78CE5773714AA /* Roy-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Roy-prefix.pch"; sourceTree = "<group>"; };
 		013B1C83FAFEEECF18772A89689116DA /* SQLCollatedExpression.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SQLCollatedExpression.swift; path = GRDB/QueryInterface/SQLCollatedExpression.swift; sourceTree = "<group>"; };
-		020CB9D9AC5FC43B4E9748D7C7EE579C /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; path = README.md; sourceTree = "<group>"; };
 		039ADBFF047DF8843C94BF8D571B714A /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS10.3.sdk/System/Library/Frameworks/UIKit.framework; sourceTree = DEVELOPER_DIR; };
-		042C3E194AF6382BC9E5EF1A1BB14F4C /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; path = LICENSE; sourceTree = "<group>"; };
 		047838E7146CA4DFAD80FE133F9C807B /* Pods-TestModule.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-TestModule.debug.xcconfig"; sourceTree = "<group>"; };
 		04999494D798A6183A0AC1FCB71D42FA /* FTS5WrapperTokenizer.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = FTS5WrapperTokenizer.swift; path = GRDB/FTS/FTS5WrapperTokenizer.swift; sourceTree = "<group>"; };
 		04DBA4848D90D636C08E2184ED1DCCC5 /* RowConvertible+Decodable.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "RowConvertible+Decodable.swift"; path = "GRDB/Record/RowConvertible+Decodable.swift"; sourceTree = "<group>"; };
 		058A29D3113E92A165F62A4B75F17200 /* SchedulingWatchdog.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SchedulingWatchdog.swift; path = GRDB/Core/SchedulingWatchdog.swift; sourceTree = "<group>"; };
 		06304D186964088BD7027014D34E548C /* Fixits-0.109.0.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "Fixits-0.109.0.swift"; path = "GRDB/Legacy/Fixits-0.109.0.swift"; sourceTree = "<group>"; };
-		08FFA1A3D88CF3458909FB1E9609002F /* Roy.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = Roy.xcconfig; sourceTree = "<group>"; };
 		09A7E27CAAD82E76B0F7A49DC22B7E27 /* RowAdapter.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = RowAdapter.swift; path = GRDB/Core/RowAdapter.swift; sourceTree = "<group>"; };
 		09B4A7299DD02735E62F94F7B70338EC /* Fixits-1.2.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "Fixits-1.2.swift"; path = "GRDB/Legacy/Fixits-1.2.swift"; sourceTree = "<group>"; };
 		0A786AE0CDACD1559BA6D30AA6F38E51 /* Request.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Request.swift; path = GRDB/Core/Request.swift; sourceTree = "<group>"; };
-		0BED89B6B94F5B49E11D5DBFEA353E02 /* Roy.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = Roy.modulemap; sourceTree = "<group>"; };
 		0C5DE38BD2FC027C083E4B725A9FA918 /* GRDB.swift.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = GRDB.swift.modulemap; sourceTree = "<group>"; };
 		0C97BFEFCB59F8D18639853827DB08C1 /* Pods_Roy_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_Roy_Tests.framework; path = "Pods-Roy_Tests.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
 		0DCF9DFC8618D0BF4A413BD5C186A879 /* Pods-Roy_Tests-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-Roy_Tests-acknowledgements.plist"; sourceTree = "<group>"; };
@@ -187,25 +182,31 @@
 		1362EE9D177423E3124D8D7554C24E5D /* DatabaseSchemaCache.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = DatabaseSchemaCache.swift; path = GRDB/Core/DatabaseSchemaCache.swift; sourceTree = "<group>"; };
 		175826BD394231E53C2ADFB38C8B0629 /* Database+Statements.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "Database+Statements.swift"; path = "GRDB/Core/Database+Statements.swift"; sourceTree = "<group>"; };
 		1991C89C2E733008260F6DBCB6FE424B /* RowConvertible.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = RowConvertible.swift; path = GRDB/Record/RowConvertible.swift; sourceTree = "<group>"; };
+		1C1C7B02F7A318EBBD36CDA73A579266 /* Roy-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Roy-prefix.pch"; sourceTree = "<group>"; };
 		1DE3717527227054E3A9AC09B68A337C /* QueryInterfaceSelectQueryDefinition.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = QueryInterfaceSelectQueryDefinition.swift; path = GRDB/QueryInterface/QueryInterfaceSelectQueryDefinition.swift; sourceTree = "<group>"; };
 		2337248BEB2A802E61DB9AD52BE830EF /* Pods-Roy_Tests.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = "Pods-Roy_Tests.modulemap"; sourceTree = "<group>"; };
 		260AE38056553A4F2D64D851648AEC6B /* GRDB.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = GRDB.h; path = Support/GRDB.h; sourceTree = "<group>"; };
+		26D5A7B61E6115B4391E4879AD7BCB72 /* Roy.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Roy.swift; path = Roy/Classes/Core/Roy.swift; sourceTree = "<group>"; };
 		2AFC97B242AB215F96EBE326F0E482B1 /* FTS3.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = FTS3.swift; path = GRDB/FTS/FTS3.swift; sourceTree = "<group>"; };
 		2B4F83A94A7880044226C973F9F17BC7 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		2C32A05BDCC679015324AE201BA638AF /* RoyModule.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = RoyModule.swift; path = Roy/Classes/UIKit/RoyModule.swift; sourceTree = "<group>"; };
 		2DF3455FF25053EBAFBDBFC445C44806 /* DatabaseQueue.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = DatabaseQueue.swift; path = GRDB/Core/DatabaseQueue.swift; sourceTree = "<group>"; };
+		37162D2290456C0072550A74B0E51EE3 /* Roy.podspec */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; lastKnownFileType = text; path = Roy.podspec; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		3C3BA8CD5EDC913A091980B3586ED147 /* Roy.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = Roy.xcconfig; sourceTree = "<group>"; };
+		3C615CF8E0D2B496218A824EE63CF566 /* Roy.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = Roy.modulemap; sourceTree = "<group>"; };
 		3DBBE8AEF6E07901F766FA26C28AA352 /* Fixits-0-84-0.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "Fixits-0-84-0.swift"; path = "GRDB/Legacy/Fixits-0-84-0.swift"; sourceTree = "<group>"; };
-		3DEE0490282C8CB6B2E7132DC2FD9BC6 /* Roy.podspec */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; lastKnownFileType = text; path = Roy.podspec; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		3EBA108FE6FF53C483E05267D399AB78 /* SQLExpressible.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SQLExpressible.swift; path = GRDB/QueryInterface/SQLExpressible.swift; sourceTree = "<group>"; };
 		413492DCFF85EC0C4D4299BEA602DD62 /* DatabaseValueConvertible+ReferenceConvertible.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "DatabaseValueConvertible+ReferenceConvertible.swift"; path = "GRDB/Core/Support/Foundation/DatabaseValueConvertible+ReferenceConvertible.swift"; sourceTree = "<group>"; };
-		4136356E862EB54D04F35AA1A4D8E0DA /* Roy-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Roy-umbrella.h"; sourceTree = "<group>"; };
 		41766707BE3F2252735449F83B14E076 /* NSNull.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = NSNull.swift; path = GRDB/Core/Support/Foundation/NSNull.swift; sourceTree = "<group>"; };
+		41F67B0EC4175D1B36692C8950500CB8 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		42935B7A148BDCD8CA91C90DDF2B218C /* GRDB.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = GRDB.framework; path = GRDB.swift.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		42B7332BBF52DB99E6357C1570F435D0 /* RoyUIExtension.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = RoyUIExtension.swift; path = Roy/Classes/UIKit/RoyUIExtension.swift; sourceTree = "<group>"; };
 		42FF2CD9D91D2AC2A8DD6A23C69CAC3C /* NSString.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = NSString.swift; path = GRDB/Core/Support/Foundation/NSString.swift; sourceTree = "<group>"; };
 		4544B432BE92369E74D26F50AC54362D /* Pods-TestModule-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-TestModule-umbrella.h"; sourceTree = "<group>"; };
 		461D64BDEE1A9A2CA97532D87CDA0D28 /* SQLSpecificExpressible+QueryInterface.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "SQLSpecificExpressible+QueryInterface.swift"; path = "GRDB/QueryInterface/SQLSpecificExpressible+QueryInterface.swift"; sourceTree = "<group>"; };
+		469DDFECE0B5DC5DB836B4F8F6D49D97 /* RoyDefaultLogSystem.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = RoyDefaultLogSystem.swift; path = Roy/Classes/Core/RoyDefaultLogSystem.swift; sourceTree = "<group>"; };
 		4BC75CF458FF4B719759540D1F95BF8E /* RowConvertible+TableMapping.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "RowConvertible+TableMapping.swift"; path = "GRDB/Record/RowConvertible+TableMapping.swift"; sourceTree = "<group>"; };
 		4F7D15F6F41E7B9C8A0315E035484472 /* GRDB.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = GRDB.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		50A794DB126919A99C4A3016233145CD /* Roy-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Roy-dummy.m"; sourceTree = "<group>"; };
 		5263E03E12EF828F76D3AAB28E17448A /* Pods-Roy_Example-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-Roy_Example-resources.sh"; sourceTree = "<group>"; };
 		53EF3165937E904F4A30331AD434E216 /* SQLOperators.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SQLOperators.swift; path = GRDB/QueryInterface/Support/SQLOperators.swift; sourceTree = "<group>"; };
 		5466F209F042CDB5ABF220E3EEB97656 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -220,7 +221,6 @@
 		60A3B0836F5903A4C069044A6EBB2CDB /* DatabaseRegion.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = DatabaseRegion.swift; path = GRDB/Core/DatabaseRegion.swift; sourceTree = "<group>"; };
 		613B2CD246DFB4B38A3D319A6C42796E /* DatabaseMigrator.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = DatabaseMigrator.swift; path = GRDB/Migration/DatabaseMigrator.swift; sourceTree = "<group>"; };
 		6184B11747EFA8B5A9288C96D519C252 /* SerializedDatabase.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SerializedDatabase.swift; path = GRDB/Core/SerializedDatabase.swift; sourceTree = "<group>"; };
-		624BB6967FA49ABC0C775502D14848A2 /* RoyAppDelegate.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = RoyAppDelegate.swift; path = Roy/Classes/Core/RoyAppDelegate.swift; sourceTree = "<group>"; };
 		6449B8401A1150275C3DB8AE34C36257 /* grdb_config.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = grdb_config.h; path = Support/grdb_config.h; sourceTree = "<group>"; };
 		68EA50D5B090C932574A8EAC22264FD4 /* Result.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Result.swift; path = GRDB/Utils/Result.swift; sourceTree = "<group>"; };
 		69555D94B8431B81086FFC1E8458C099 /* Pods-Roy_Example-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-Roy_Example-acknowledgements.plist"; sourceTree = "<group>"; };
@@ -237,12 +237,16 @@
 		7A38E9A48C4C10FD49E6CD2FC1CDCD89 /* Pods-Roy_Tests-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-Roy_Tests-acknowledgements.markdown"; sourceTree = "<group>"; };
 		7B6CB478305C54C32CCD01976FCBBAA4 /* StandardLibrary.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = StandardLibrary.swift; path = GRDB/Core/Support/StandardLibrary/StandardLibrary.swift; sourceTree = "<group>"; };
 		7EDA716DD9A287E9A6006FC1549C5AAE /* FetchedRecordsController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = FetchedRecordsController.swift; path = GRDB/Record/FetchedRecordsController.swift; sourceTree = "<group>"; };
+		7F8241957FA7CEE7010A53D34F6BDD1D /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; path = LICENSE; sourceTree = "<group>"; };
 		7F97424877467603151922B055FA5E3E /* VirtualTableModule.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = VirtualTableModule.swift; path = GRDB/QueryInterface/VirtualTableModule.swift; sourceTree = "<group>"; };
 		84152EB60CB8BA4123D0D0EF6579B210 /* Pods-Roy_Tests-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-Roy_Tests-frameworks.sh"; sourceTree = "<group>"; };
 		86F02D8798ED30336A2EE414FAAC4EF2 /* Pods-Roy_Tests-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-Roy_Tests-umbrella.h"; sourceTree = "<group>"; };
 		8795776B002CB1C77D8FA56854AC4B50 /* SQLSelectable+QueryInterface.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "SQLSelectable+QueryInterface.swift"; path = "GRDB/QueryInterface/SQLSelectable+QueryInterface.swift"; sourceTree = "<group>"; };
+		87AD706759637C77D599C35EF680DF97 /* RoyUIExtension.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = RoyUIExtension.swift; path = Roy/Classes/UIKit/RoyUIExtension.swift; sourceTree = "<group>"; };
 		8A64A7E5C584769D80016483C1ACDF8D /* SQLOrdering.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SQLOrdering.swift; path = GRDB/QueryInterface/SQLOrdering.swift; sourceTree = "<group>"; };
-		8EA3C66FA976A5FF933D276C13D64B8A /* Roy-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Roy-dummy.m"; sourceTree = "<group>"; };
+		8B55EC0942044FBB8942249E0DB6E0D2 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; path = README.md; sourceTree = "<group>"; };
+		8C16E8A7C91C82796EBA30EF903C7DD8 /* Roy-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Roy-umbrella.h"; sourceTree = "<group>"; };
+		8DE4DDCAE8017C321BDCFEDC663695C8 /* RoyAppDelegate.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = RoyAppDelegate.swift; path = Roy/Classes/UIKit/RoyAppDelegate.swift; sourceTree = "<group>"; };
 		8ECD41D9B5A45BE5B05B52E4AB897EA3 /* FTS5Pattern.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = FTS5Pattern.swift; path = GRDB/FTS/FTS5Pattern.swift; sourceTree = "<group>"; };
 		8EE7AEA0D6E695CFF32B9D6B7D28ADEB /* FTS5TokenizerDescriptor.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = FTS5TokenizerDescriptor.swift; path = GRDB/FTS/FTS5TokenizerDescriptor.swift; sourceTree = "<group>"; };
 		914A2DB34426E8B254EF73FDA83D8BE7 /* Fixits-0-90-1.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "Fixits-0-90-1.swift"; path = "GRDB/Legacy/Fixits-0-90-1.swift"; sourceTree = "<group>"; };
@@ -253,7 +257,6 @@
 		9D8C54FE3630FFB72F0E79D833161E17 /* Persistable.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Persistable.swift; path = GRDB/Record/Persistable.swift; sourceTree = "<group>"; };
 		9EFDAEB779E949E490FD43D182B03F97 /* FTS5.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = FTS5.swift; path = GRDB/FTS/FTS5.swift; sourceTree = "<group>"; };
 		A182B71D32B0E7CA4BF4D078F125821E /* Database+Schema.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "Database+Schema.swift"; path = "GRDB/Core/Database+Schema.swift"; sourceTree = "<group>"; };
-		A2D56DCA16A036ADA34D1347E9A21D82 /* RoyURLAnalyzer.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = RoyURLAnalyzer.swift; path = Roy/Classes/Core/RoyURLAnalyzer.swift; sourceTree = "<group>"; };
 		A58A0BCD868C0777E4C08F8D11204965 /* SQLExpression+QueryInterface.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "SQLExpression+QueryInterface.swift"; path = "GRDB/QueryInterface/SQLExpression+QueryInterface.swift"; sourceTree = "<group>"; };
 		A5AEC078973AE0F8E3BD3420012344F4 /* TransactionObserver.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = TransactionObserver.swift; path = GRDB/Core/TransactionObserver.swift; sourceTree = "<group>"; };
 		A6BE3B61A2DE0E71F05230FA33B49589 /* GRDB.swift-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "GRDB.swift-prefix.pch"; sourceTree = "<group>"; };
@@ -261,7 +264,6 @@
 		A793FD62A73B677CD5D7DE0CA7CB76C9 /* Pods-Roy_Example-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-Roy_Example-umbrella.h"; sourceTree = "<group>"; };
 		A7EAFF6136364F64DB2113FD313780ED /* NSData.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = NSData.swift; path = GRDB/Core/Support/Foundation/NSData.swift; sourceTree = "<group>"; };
 		A89EC8D775A06931DB7176E229932010 /* FTS4.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = FTS4.swift; path = GRDB/FTS/FTS4.swift; sourceTree = "<group>"; };
-		A8CF6B7DB45487180196B147C0B531EF /* RoyDefaultLogSystem.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = RoyDefaultLogSystem.swift; path = Roy/Classes/Core/RoyDefaultLogSystem.swift; sourceTree = "<group>"; };
 		AA654E6FC12A07BBFCD1FABD1281669A /* ReadWriteBox.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ReadWriteBox.swift; path = GRDB/Utils/ReadWriteBox.swift; sourceTree = "<group>"; };
 		AC93A952C03336F1EB554C86E4DC96A4 /* Utils.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Utils.swift; path = GRDB/Utils/Utils.swift; sourceTree = "<group>"; };
 		ACC7DB5617C2E57EB6B98ABC7AFD6878 /* DatabaseCollation.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = DatabaseCollation.swift; path = GRDB/Core/DatabaseCollation.swift; sourceTree = "<group>"; };
@@ -272,7 +274,6 @@
 		B14AA536C4D841DD87718EEA424AAF79 /* Pods-Roy_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Roy_Example.debug.xcconfig"; sourceTree = "<group>"; };
 		B1CFEB5C5B777C1F6495F5A87F707041 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B478109CEFF86D1A616B2C7DFA5EF4CB /* GRDB.swift.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = GRDB.swift.xcconfig; sourceTree = "<group>"; };
-		B5737BA997E3EB08F837E9304EE42065 /* Roy.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Roy.swift; path = Roy/Classes/Core/Roy.swift; sourceTree = "<group>"; };
 		B65C31BA5FF957694506ADABD1B479BC /* Pods-TestModule-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-TestModule-acknowledgements.plist"; sourceTree = "<group>"; };
 		B9410F472C6B06AC653C80EB35334BAE /* Pods-Roy_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Roy_Tests.debug.xcconfig"; sourceTree = "<group>"; };
 		B9512060D07F64AE90796F8746B38AF8 /* FTS5CustomTokenizer.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = FTS5CustomTokenizer.swift; path = GRDB/FTS/FTS5CustomTokenizer.swift; sourceTree = "<group>"; };
@@ -287,6 +288,7 @@
 		C9E1840E1C788DE8981148EE7F79EAD7 /* Pods-TestModule-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-TestModule-acknowledgements.markdown"; sourceTree = "<group>"; };
 		CC7EDFDFBA1CE02ED71642031C880920 /* GRDB.swift-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "GRDB.swift-dummy.m"; sourceTree = "<group>"; };
 		CD326CBC410D0B12DCD4463A82F4ADD4 /* TableMapping.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = TableMapping.swift; path = GRDB/Record/TableMapping.swift; sourceTree = "<group>"; };
+		CD504A86C8FB800F74E07372042E0D93 /* RoyURLAnalyzer.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = RoyURLAnalyzer.swift; path = Roy/Classes/Core/RoyURLAnalyzer.swift; sourceTree = "<group>"; };
 		CE0AA3A59E40C8877D9C560A0435F432 /* DatabaseSnapshot.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = DatabaseSnapshot.swift; path = GRDB/Core/DatabaseSnapshot.swift; sourceTree = "<group>"; };
 		CF1551D7BCE1AFCE240D579527006D0D /* CGFloat.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CGFloat.swift; path = GRDB/Core/Support/CoreGraphics/CGFloat.swift; sourceTree = "<group>"; };
 		CF9E13D20FAD8AECA4AFD529FB9CDC0E /* SQLFunctions.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SQLFunctions.swift; path = GRDB/QueryInterface/Support/SQLFunctions.swift; sourceTree = "<group>"; };
@@ -307,10 +309,8 @@
 		EB13709FE7F98FB6A28863055F47E80F /* DatabaseError.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = DatabaseError.swift; path = GRDB/Core/DatabaseError.swift; sourceTree = "<group>"; };
 		ECDA73EF1DFFEAD769B9589A1FF8BEFC /* Record.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Record.swift; path = GRDB/Record/Record.swift; sourceTree = "<group>"; };
 		EFE6592E90911DA869E8E6318B952C2F /* Pool.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Pool.swift; path = GRDB/Utils/Pool.swift; sourceTree = "<group>"; };
-		F0266A691374DCF13BF7A6E369F972E4 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F374C52CE52B4FB9183D8FCC8C4AC34B /* Column.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Column.swift; path = GRDB/QueryInterface/Column.swift; sourceTree = "<group>"; };
 		F5017042E03DB64FEDF87BF1EABFDD34 /* DatabaseValueConvertible+Decodable.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "DatabaseValueConvertible+Decodable.swift"; path = "GRDB/Core/Support/StandardLibrary/DatabaseValueConvertible+Decodable.swift"; sourceTree = "<group>"; };
-		F66C387C453B88D629603A1AD9583B6F /* RoyModule.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = RoyModule.swift; path = Roy/Classes/Core/RoyModule.swift; sourceTree = "<group>"; };
 		F83A5845249D1501A5410761B8670FA6 /* Pods_TestModule.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_TestModule.framework; path = "Pods-TestModule.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F8A0AF537F704C81C5123D1297EF5399 /* RecordBox.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = RecordBox.swift; path = GRDB/Record/RecordBox.swift; sourceTree = "<group>"; };
 		F9637FF94B422F4AB0567FDE3D79F0AF /* DatabaseValue.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = DatabaseValue.swift; path = GRDB/Core/DatabaseValue.swift; sourceTree = "<group>"; };
@@ -364,18 +364,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		102737CC3D9A6564D842A2C394046085 /* Core */ = {
-			isa = PBXGroup;
-			children = (
-				B5737BA997E3EB08F837E9304EE42065 /* Roy.swift */,
-				624BB6967FA49ABC0C775502D14848A2 /* RoyAppDelegate.swift */,
-				A8CF6B7DB45487180196B147C0B531EF /* RoyDefaultLogSystem.swift */,
-				F66C387C453B88D629603A1AD9583B6F /* RoyModule.swift */,
-				A2D56DCA16A036ADA34D1347E9A21D82 /* RoyURLAnalyzer.swift */,
-			);
-			name = Core;
-			sourceTree = "<group>";
-		};
 		22D2C3A718EDADB238AC647DBA2CDB74 /* Targets Support Files */ = {
 			isa = PBXGroup;
 			children = (
@@ -384,6 +372,16 @@
 				CDACB79AB01847944D7C0BD6019C8AE7 /* Pods-TestModule */,
 			);
 			name = "Targets Support Files";
+			sourceTree = "<group>";
+		};
+		29C499F83144B5AFBC6AF5556170A555 /* Core */ = {
+			isa = PBXGroup;
+			children = (
+				26D5A7B61E6115B4391E4879AD7BCB72 /* Roy.swift */,
+				469DDFECE0B5DC5DB836B4F8F6D49D97 /* RoyDefaultLogSystem.swift */,
+				CD504A86C8FB800F74E07372042E0D93 /* RoyURLAnalyzer.swift */,
+			);
+			name = Core;
 			sourceTree = "<group>";
 		};
 		2CF5F57FF77AFC351DEF43E5BFDABF1F /* Support Files */ = {
@@ -399,12 +397,24 @@
 			path = "../Target Support Files/GRDB.swift";
 			sourceTree = "<group>";
 		};
-		2F92BA536409CF2669D5B83DE691B255 /* UI */ = {
+		5117E216246ED2C1C7F3F39951BE0709 /* UI */ = {
 			isa = PBXGroup;
 			children = (
-				42B7332BBF52DB99E6357C1570F435D0 /* RoyUIExtension.swift */,
+				8DE4DDCAE8017C321BDCFEDC663695C8 /* RoyAppDelegate.swift */,
+				2C32A05BDCC679015324AE201BA638AF /* RoyModule.swift */,
+				87AD706759637C77D599C35EF680DF97 /* RoyUIExtension.swift */,
 			);
 			name = UI;
+			sourceTree = "<group>";
+		};
+		55B28B7469BCFD91D3A51B9004017220 /* Pod */ = {
+			isa = PBXGroup;
+			children = (
+				7F8241957FA7CEE7010A53D34F6BDD1D /* LICENSE */,
+				8B55EC0942044FBB8942249E0DB6E0D2 /* README.md */,
+				37162D2290456C0072550A74B0E51EE3 /* Roy.podspec */,
+			);
+			name = Pod;
 			sourceTree = "<group>";
 		};
 		5B405BE43486F23A2DC0EE187EE55663 /* Pods */ = {
@@ -518,6 +528,20 @@
 			path = GRDB.swift;
 			sourceTree = "<group>";
 		};
+		6D8B0D1E1CC4BADEF33DD091E31556FB /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				41F67B0EC4175D1B36692C8950500CB8 /* Info.plist */,
+				3C615CF8E0D2B496218A824EE63CF566 /* Roy.modulemap */,
+				3C3BA8CD5EDC913A091980B3586ED147 /* Roy.xcconfig */,
+				50A794DB126919A99C4A3016233145CD /* Roy-dummy.m */,
+				1C1C7B02F7A318EBBD36CDA73A579266 /* Roy-prefix.pch */,
+				8C16E8A7C91C82796EBA30EF903C7DD8 /* Roy-umbrella.h */,
+			);
+			name = "Support Files";
+			path = "Example/Pods/Target Support Files/Roy";
+			sourceTree = "<group>";
+		};
 		76BBCC5844C2F6E5F61A2A4E557D63D6 /* Pods-Roy_Tests */ = {
 			isa = PBXGroup;
 			children = (
@@ -560,36 +584,10 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
-		8F50BEE22B8A43F95B53C48C9D30EFA8 /* Support Files */ = {
-			isa = PBXGroup;
-			children = (
-				F0266A691374DCF13BF7A6E369F972E4 /* Info.plist */,
-				0BED89B6B94F5B49E11D5DBFEA353E02 /* Roy.modulemap */,
-				08FFA1A3D88CF3458909FB1E9609002F /* Roy.xcconfig */,
-				8EA3C66FA976A5FF933D276C13D64B8A /* Roy-dummy.m */,
-				007D60785D8D646478B78CE5773714AA /* Roy-prefix.pch */,
-				4136356E862EB54D04F35AA1A4D8E0DA /* Roy-umbrella.h */,
-			);
-			name = "Support Files";
-			path = "Example/Pods/Target Support Files/Roy";
-			sourceTree = "<group>";
-		};
-		9B61689A9A3350214391D8BEAA51CFA4 /* Roy */ = {
-			isa = PBXGroup;
-			children = (
-				102737CC3D9A6564D842A2C394046085 /* Core */,
-				AE2D712FD4BC66C8AAB89728D626DF7F /* Pod */,
-				8F50BEE22B8A43F95B53C48C9D30EFA8 /* Support Files */,
-				2F92BA536409CF2669D5B83DE691B255 /* UI */,
-			);
-			name = Roy;
-			path = ../..;
-			sourceTree = "<group>";
-		};
 		9FB28735B679F3805D94484F2656A3F1 /* Development Pods */ = {
 			isa = PBXGroup;
 			children = (
-				9B61689A9A3350214391D8BEAA51CFA4 /* Roy */,
+				A85B053C34C679EE9ED1B052D7E8F737 /* Roy */,
 			);
 			name = "Development Pods";
 			sourceTree = "<group>";
@@ -612,14 +610,16 @@
 			path = "Target Support Files/Pods-Roy_Example";
 			sourceTree = "<group>";
 		};
-		AE2D712FD4BC66C8AAB89728D626DF7F /* Pod */ = {
+		A85B053C34C679EE9ED1B052D7E8F737 /* Roy */ = {
 			isa = PBXGroup;
 			children = (
-				042C3E194AF6382BC9E5EF1A1BB14F4C /* LICENSE */,
-				020CB9D9AC5FC43B4E9748D7C7EE579C /* README.md */,
-				3DEE0490282C8CB6B2E7132DC2FD9BC6 /* Roy.podspec */,
+				29C499F83144B5AFBC6AF5556170A555 /* Core */,
+				55B28B7469BCFD91D3A51B9004017220 /* Pod */,
+				6D8B0D1E1CC4BADEF33DD091E31556FB /* Support Files */,
+				5117E216246ED2C1C7F3F39951BE0709 /* UI */,
 			);
-			name = Pod;
+			name = Roy;
+			path = ../..;
 			sourceTree = "<group>";
 		};
 		CDACB79AB01847944D7C0BD6019C8AE7 /* Pods-TestModule */ = {
@@ -955,9 +955,9 @@
 			files = (
 				7BAC9A86B34A37D3247E0CD3C4294629 /* Roy-dummy.m in Sources */,
 				33D39467B1D7AB7C09FA6D60D642E856 /* Roy.swift in Sources */,
-				FE548AF0E49C5BA99A157399EAC47497 /* RoyAppDelegate.swift in Sources */,
+				879D8F98E04A8A7E8A2399FF5EE3CDB6 /* RoyAppDelegate.swift in Sources */,
 				D13BCFC90CBE3D62B1F2661738D2D921 /* RoyDefaultLogSystem.swift in Sources */,
-				F570D7F18AA9E9839C0297B2538713B7 /* RoyModule.swift in Sources */,
+				94C91B7786749C7CC7B2ED5591967594 /* RoyModule.swift in Sources */,
 				804F6E55B71FF61B05823AC456ADA5F3 /* RoyUIExtension.swift in Sources */,
 				DAA43845324465EAC99565694DB5E5C1 /* RoyURLAnalyzer.swift in Sources */,
 			);
@@ -1066,7 +1066,7 @@
 		};
 		632D30540AEEF882D625A399598A3EAF /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 08FFA1A3D88CF3458909FB1E9609002F /* Roy.xcconfig */;
+			baseConfigurationReference = 3C3BA8CD5EDC913A091980B3586ED147 /* Roy.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
@@ -1132,7 +1132,7 @@
 		};
 		A87786A54FE6B87E08765040CFABBB55 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 08FFA1A3D88CF3458909FB1E9609002F /* Roy.xcconfig */;
+			baseConfigurationReference = 3C3BA8CD5EDC913A091980B3586ED147 /* Roy.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";

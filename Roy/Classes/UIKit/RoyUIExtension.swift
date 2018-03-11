@@ -51,6 +51,7 @@ public extension RoyR{
 }
 
 
+
 extension RoyModule{
     open func addRouter(path:String , viewController : RoyProtocol.Type,paramValidator:RoyValidatorProtocol.Type?) -> Bool{
         let urlString = "\(self.scheme)://\(moduleHost)/\(path)"
@@ -64,7 +65,6 @@ extension RoyModule{
         return RoyR.global.viewController(url: url!, param: param)
     }
 }
-
 
 
 public extension UIViewController{
