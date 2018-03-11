@@ -50,6 +50,23 @@ public extension RoyR{
     
 }
 
+
+extension RoyModule{
+    open func addRouter(path:String , viewController : RoyProtocol.Type,paramValidator:RoyValidatorProtocol.Type?) -> Bool{
+        let urlString = "\(self.scheme)://\(moduleHost)/\(path)"
+        
+        return RoyR.global.addRouter(url: urlString, viewController: viewController, paramValidator: paramValidator)
+    }
+    
+    open func viewController(path:String,param:[String:Any]?) -> UIViewController?{
+        let urlString = "\(self.scheme)://\(moduleHost)/\(path)"
+        let url = URL(string: urlString)
+        return RoyR.global.viewController(url: url!, param: param)
+    }
+}
+
+
+
 public extension UIViewController{
     public func present(url : URL, param : [String:Any]?, animated: Bool, completion: (() -> Void)?){
         if let vc = RoyR.global.viewController(url: url, param: param){
@@ -79,7 +96,7 @@ public extension UINavigationController{
     public func setViewControllers(urls : [URL], animated: Bool){
         var vcs : [UIViewController] = []
         for url in urls {
-            if let vc = RoyR.global.viewController(url: url,param:nil) as? UIViewController{
+            if let vc = RoyR.global.viewController(url: url,param:nil){
                 vcs.append(vc)
             }
             else{
