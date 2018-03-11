@@ -1,8 +1,10 @@
 PODS:
+  - GRDB.swift (2.9.0)
   - Roy (0.0.1):
     - Roy/Core (= 0.0.1)
     - Roy/UI (= 0.0.1)
-  - Roy/Core (0.0.1)
+  - Roy/Core (0.0.1):
+    - GRDB.swift
   - Roy/UI (0.0.1):
     - Roy/Core
 
@@ -14,7 +16,8 @@ EXTERNAL SOURCES:
     :path: ../
 
 SPEC CHECKSUMS:
-  Roy: e3e4ff9654d478f853573ef77b236ac668f7a465
+  GRDB.swift: db8429f12d250f3056df82eb3409e5af083948ca
+  Roy: d09eaada1a78057d758ed6a5a5c826858c8e1f97
 
 PODFILE CHECKSUM: 64911e2606e1762d3659cd797ff8e3389f0a979f
 

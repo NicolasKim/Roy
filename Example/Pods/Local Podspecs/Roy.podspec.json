@@ -28,7 +28,12 @@
     {
       "name": "Core",
       "source_files": "Roy/Classes/Core/*.{swift}",
-      "frameworks": "Foundation"
+      "frameworks": "Foundation",
+      "dependencies": {
+        "GRDB.swift": [
+
+        ]
+      }
     },
     {
       "name": "UI",

@@ -19,6 +19,7 @@ Pod::Spec.new do |s|
   s.subspec 'Core' do |cs|
   	cs.source_files = 'Roy/Classes/Core/*.{swift}'
     cs.frameworks = 'Foundation'
+    cs.dependency 'GRDB.swift'
   end
   s.subspec 'UI' do |cs|
       cs.source_files = 'Roy/Classes/UIKit/*.{swift}'

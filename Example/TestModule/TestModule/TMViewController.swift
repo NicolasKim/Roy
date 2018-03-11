@@ -29,7 +29,6 @@ class TMViewController: UITabBarController,RoyProtocol {
                                        URL(string: "Roy://testmodule/hahaha?c=4")!],
                                 animated: true)
         
-        
     }
 
     override func didReceiveMemoryWarning() {
