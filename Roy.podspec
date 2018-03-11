@@ -17,15 +17,13 @@ Pod::Spec.new do |s|
   s.default_subspecs = 'Core', 'UI'
   s.subspec 'Core' do |cs|
   	cs.source_files = 'Roy/Classes/Core/*.{swift}'
-    cs.frameworks = 'Foundation'
     cs.dependency 'GRDB.swift'
   end
   s.subspec 'UI' do |cs|
       cs.source_files = 'Roy/Classes/UIKit/*.{swift}'
       cs.dependency 'Roy/Core'
-      cs.frameworks = 'UIKit'
   end
-  
+  s.frameworks = 'Foundation','UIKit'
   s.pod_target_xcconfig = { 'SWIFT_VERSION' => '4' }
 
 end

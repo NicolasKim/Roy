@@ -21,6 +21,10 @@
     "Core",
     "UI"
   ],
+  "frameworks": [
+    "Foundation",
+    "UIKit"
+  ],
   "pod_target_xcconfig": {
     "SWIFT_VERSION": "4"
   },
@@ -28,7 +32,6 @@
     {
       "name": "Core",
       "source_files": "Roy/Classes/Core/*.{swift}",
-      "frameworks": "Foundation",
       "dependencies": {
         "GRDB.swift": [
 
@@ -42,8 +45,7 @@
         "Roy/Core": [
 
         ]
-      },
-      "frameworks": "UIKit"
+      }
     }
   ]
 }
