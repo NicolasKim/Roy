@@ -9,7 +9,7 @@ Pod::Spec.new do |s|
     empty
                        DESC
   s.platform     = :ios, "8.0"
-  s.homepage         = 'https://github.com/jinqiucheng1006@live.cn/Roy'
+  s.homepage         = 'https://github.com/NicolasKim'
   s.license          = { :type => 'MIT', :file => 'LICENSE' }
   s.author           = 'jinqiucheng1006@live.cn'
   s.source           = { :git => 'https://github.com/NicolasKim/Roy.git', :branch => s.version.to_s }
