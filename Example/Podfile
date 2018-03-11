@@ -5,7 +5,7 @@ workspace 'Roy.xcworkspace'
 
 target 'Roy_Example' do
   pod 'Roy', :path => '../'
-
+	
   target 'Roy_Tests' do
     inherit! :search_paths
 

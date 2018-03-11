@@ -12,9 +12,8 @@ import Roy
 public class TestModuleDelegate: RoyModule {
     required public init(appScheme: String, host: String) {
         super.init(appScheme: appScheme, host: host)
-
-        _ = self.addRouter(path: "initializeviewcontroller", viewController: TMViewController.self)
-        _ = RoyGlobal.instance.addRouter(url: URL(string: "Roy://testmodule/hahaha")!, viewController: FirstViewController.self)
+        _ = self.addRouter(path: "initializeviewcontroller", viewController: TMViewController.self,paramValidator:nil)
+        _ = RoyR.global.addRouter(url: "Roy://testmodule/hahaha", viewController: FirstViewController.self,paramValidator:nil)
     }
     
     

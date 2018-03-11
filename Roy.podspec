@@ -15,8 +15,17 @@ Pod::Spec.new do |s|
   s.author           = 'jinqiucheng1006@live.cn'
   s.source           = { :git => 'https://github.com/NicolasKim/Roy.git', :branch => s.version.to_s }
   s.ios.deployment_target = '8.0'
-  s.source_files = 'Roy/Classes/*.{swift}'
-  s.pod_target_xcconfig = { 'SWIFT_VERSION' => '3' }
-  s.frameworks = 'UIKit', 'Foundation'
+  s.default_subspecs = 'Core', 'UI'
+  s.subspec 'Core' do |cs|
+  	cs.source_files = 'Roy/Classes/Core/*.{swift}'
+    cs.frameworks = 'Foundation'
+  end
+  s.subspec 'UI' do |cs|
+      cs.source_files = 'Roy/Classes/UIKit/*.{swift}'
+      cs.dependency 'Roy/Core'
+      cs.frameworks = 'UIKit'
+  end
+  
+  s.pod_target_xcconfig = { 'SWIFT_VERSION' => '4' }
 
 end
