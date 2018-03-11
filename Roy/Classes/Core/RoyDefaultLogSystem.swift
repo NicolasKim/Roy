@@ -27,15 +27,10 @@ struct Platform {
     }()
 }
 
-protocol RoyDefaultLogSystemDelegate {
-    
-}
 
 class RoyDefaultLogSystem : RoyLogProtocol {
-    
-    
 
-    var delegate:RoyDefaultLogSystemDelegate?
+    var delegate:RoyLogProtocol?
     var saveToDB = true
     var dbQueue : DatabaseQueue?
     
@@ -102,6 +97,8 @@ class RoyDefaultLogSystem : RoyLogProtocol {
                 print("roy logsystem save log to db error")
             }
         }
+        
+        self.delegate?.addRegistLog(withURL: url, message: message, errorType: errorType)
     }
     
     func addRouteLog(withURL url:String,url_rule:String?,message:String?,errorType:RoyLogErrorType) {
@@ -127,7 +124,7 @@ class RoyDefaultLogSystem : RoyLogProtocol {
                 print("roy logsystem save log to db error")
             }
         }
-
+        self.delegate?.addRouteLog(withURL: url, url_rule: url_rule, message: message, errorType: errorType)
     }
     
 }
