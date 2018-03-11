@@ -2,12 +2,11 @@
 Pod::Spec.new do |s|
 
   s.name             = 'Roy'
-  s.version          = '0.0.1'
-  s.summary          = 'A short description of Roy.'
+  s.version          = '0.0.2'
+  s.summary          = '一个轻量组件化支持框架'
   s.module_name  = 'Roy'
-  s.summary      = "Just testing"
   s.description      = <<-DESC
-    Add long description of the pod here.
+    empty
                        DESC
   s.platform     = :ios, "8.0"
   s.homepage         = 'https://github.com/jinqiucheng1006@live.cn/Roy'
