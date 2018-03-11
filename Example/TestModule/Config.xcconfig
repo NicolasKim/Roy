@@ -1,7 +1,1 @@
-//
-//  Config.xcconfig
-//  TestModule
-//
-//  Created by dreamtracer on 2018/3/10.
-//  Copyright © 2018年 DreamTracer. All rights reserved.
-//
+FRAMEWORK_OUTPUT_PATH=/Users/dreamtracer/Documents/Github-repo/Roy/Example
