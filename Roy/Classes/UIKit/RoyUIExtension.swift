@@ -9,7 +9,7 @@ import Foundation
 
 
 
-public protocol RoyProtocol : NSObjectProtocol {
+public protocol RoyCreationProtocol : NSObjectProtocol {
     init?(param : [String:Any]?)
 }
 
@@ -19,8 +19,8 @@ public protocol RoyProtocol : NSObjectProtocol {
  */
 
 public extension RoyR{
-    public func addRouter(url:String , viewController : RoyProtocol.Type ,paramValidator: RoyValidatorProtocol.Type?) -> Bool{
-        let c : RoyTaskClosure = { (p : [String:Any]?) -> RoyProtocol? in
+    public func addRouter(url:String , viewController : RoyCreationProtocol.Type ,paramValidator: RoyValidatorProtocol.Type?) -> Bool{
+        let c : RoyTaskClosure = { (p : [String:Any]?) -> RoyCreationProtocol? in
             if let vc = viewController.init(param: p) {
                 return vc
             }
@@ -29,8 +29,8 @@ public extension RoyR{
         return self.addRouter(url: url, task: c, paramValidator: paramValidator)
     }
     
-    public func viewController(url:URL,param:[String:Any]?) -> RoyProtocol?{
-        return self.route(url: url, param: param) as? RoyProtocol
+    public func viewController(url:URL,param:[String:Any]?) -> RoyCreationProtocol?{
+        return self.route(url: url, param: param) as? RoyCreationProtocol
     }
     
 }

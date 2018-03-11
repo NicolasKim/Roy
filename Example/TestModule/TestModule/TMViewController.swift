@@ -10,7 +10,7 @@ import UIKit
 import Roy
 
 
-class TMViewController: UITabBarController,RoyProtocol {
+class TMViewController: UITabBarController,RoyCreationProtocol {
 
     required init?(param : [String:Any]?){
         super.init(nibName: nil, bundle: nil)

@@ -10,7 +10,7 @@ import UIKit
 
 import Roy
 
-class FirstViewController: UIViewController,RoyProtocol {
+class FirstViewController: UIViewController,RoyCreationProtocol {
 
     var color : UIColor
     
