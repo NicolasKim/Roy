@@ -9,7 +9,7 @@ import Foundation
 
 
 
-public protocol RoyCreationProtocol : NSObjectProtocol {
+public protocol RoyCreationProtocol {
     init?(param : [String:Any]?)
 }
 
