@@ -7,18 +7,24 @@ PODS:
     - GRDB.swift
   - Roy/UI (0.0.2):
     - Roy/Core
+  - UserPlugin (0.1.0):
+    - Roy
 
 DEPENDENCIES:
   - Roy (from `../`)
+  - UserPlugin (from `/Users/dreamtracer/Documents/Github-repo/UserPlugin`)
 
 EXTERNAL SOURCES:
   Roy:
     :path: ../
+  UserPlugin:
+    :path: /Users/dreamtracer/Documents/Github-repo/UserPlugin
 
 SPEC CHECKSUMS:
   GRDB.swift: db8429f12d250f3056df82eb3409e5af083948ca
   Roy: c1371329cae100b46311930c39edcc6eef8be35a
+  UserPlugin: 21b690fbe1d2db4c5aa7fea3c94c7312a9878e3a
 
-PODFILE CHECKSUM: 64911e2606e1762d3659cd797ff8e3389f0a979f
+PODFILE CHECKSUM: 8745acd685e7fa5e50ee8f28fdcff477aea43f12
 
 COCOAPODS: 1.4.0

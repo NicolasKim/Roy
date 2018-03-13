@@ -1,0 +1,6 @@
+framework module UserPlugin {
+  umbrella header "UserPlugin-umbrella.h"
+
+  export *
+  module * { export * }
+}

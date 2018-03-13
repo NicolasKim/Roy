@@ -7,8 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		5506F5052053F0C700FFB209 /* TestModule.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5506F5042053F0C700FFB209 /* TestModule.framework */; };
-		5506F5062053F0C700FFB209 /* TestModule.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 5506F5042053F0C700FFB209 /* TestModule.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		607FACD61AFB9204008FA782 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACD51AFB9204008FA782 /* AppDelegate.swift */; };
 		607FACD81AFB9204008FA782 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACD71AFB9204008FA782 /* ViewController.swift */; };
 		607FACDB1AFB9204008FA782 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 607FACD91AFB9204008FA782 /* Main.storyboard */; };
@@ -37,7 +35,6 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				5506F5062053F0C700FFB209 /* TestModule.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -48,9 +45,8 @@
 		083C3A51A10156B3172671FF /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
 		24FB60024C91923E1750C433 /* Pods-Roy_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Roy_Example.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Roy_Example/Pods-Roy_Example.debug.xcconfig"; sourceTree = "<group>"; };
 		4CC68F6985DE5824F2653767 /* Pods-Roy_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Roy_Tests.release.xcconfig"; path = "Pods/Target Support Files/Pods-Roy_Tests/Pods-Roy_Tests.release.xcconfig"; sourceTree = "<group>"; };
-		4D0675FEF5C8853F5C1FE66B /* Roy.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = Roy.podspec; path = ../Roy.podspec; sourceTree = "<group>"; };
+		4D0675FEF5C8853F5C1FE66B /* Roy.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = Roy.podspec; path = ../Roy.podspec; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		51DA9F56BBFA3BC2EC91CE81 /* Pods-Roy_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Roy_Example.release.xcconfig"; path = "Pods/Target Support Files/Pods-Roy_Example/Pods-Roy_Example.release.xcconfig"; sourceTree = "<group>"; };
-		5506F5042053F0C700FFB209 /* TestModule.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = TestModule.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		607FACD01AFB9204008FA782 /* Roy_Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Roy_Example.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		607FACD41AFB9204008FA782 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		607FACD51AFB9204008FA782 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -73,7 +69,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5506F5052053F0C700FFB209 /* TestModule.framework in Frameworks */,
 				615030F0076DFC63D84A3299 /* Pods_Roy_Example.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -112,7 +107,6 @@
 		607FACC71AFB9204008FA782 = {
 			isa = PBXGroup;
 			children = (
-				5506F5042053F0C700FFB209 /* TestModule.framework */,
 				607FACF51AFB993E008FA782 /* Podspec Metadata */,
 				607FACD21AFB9204008FA782 /* Example for Roy */,
 				607FACE81AFB9204008FA782 /* Tests */,
@@ -325,9 +319,16 @@
 			files = (
 			);
 			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-Roy_Tests/Pods-Roy_Tests-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/GRDB.swift/GRDB.framework",
+				"${BUILT_PRODUCTS_DIR}/Roy/Roy.framework",
+				"${BUILT_PRODUCTS_DIR}/UserPlugin/UserPlugin.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GRDB.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Roy.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/UserPlugin.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -343,11 +344,13 @@
 				"${SRCROOT}/Pods/Target Support Files/Pods-Roy_Example/Pods-Roy_Example-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/GRDB.swift/GRDB.framework",
 				"${BUILT_PRODUCTS_DIR}/Roy/Roy.framework",
+				"${BUILT_PRODUCTS_DIR}/UserPlugin/UserPlugin.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GRDB.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Roy.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/UserPlugin.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -535,10 +538,10 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				DEVELOPMENT_TEAM = GJ7HXA2QN2;
-				HEADER_SEARCH_PATHS = "$(SRCROOT)/TestModule";
+				HEADER_SEARCH_PATHS = "";
 				INFOPLIST_FILE = Roy/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				LIBRARY_SEARCH_PATHS = "$(SRCROOT)/TestModule";
+				LIBRARY_SEARCH_PATHS = "";
 				MODULE_NAME = ExampleApp;
 				PRODUCT_BUNDLE_IDENTIFIER = com.test.identifier;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -553,10 +556,10 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				DEVELOPMENT_TEAM = GJ7HXA2QN2;
-				HEADER_SEARCH_PATHS = "$(SRCROOT)/TestModule";
+				HEADER_SEARCH_PATHS = "";
 				INFOPLIST_FILE = Roy/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				LIBRARY_SEARCH_PATHS = "$(SRCROOT)/TestModule";
+				LIBRARY_SEARCH_PATHS = "";
 				MODULE_NAME = ExampleApp;
 				PRODUCT_BUNDLE_IDENTIFIER = com.test.identifier;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -581,7 +584,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 3.0;
+				SWIFT_VERSION = 4.0;
 			};
 			name = Debug;
 		};
@@ -598,7 +601,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 3.0;
+				SWIFT_VERSION = 4.0;
 			};
 			name = Release;
 		};

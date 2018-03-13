@@ -1,7 +1,10 @@
-FRAMEWORK_SEARCH_PATHS = $(inherited) "${PODS_CONFIGURATION_BUILD_DIR}/GRDB.swift" "${PODS_CONFIGURATION_BUILD_DIR}/Roy"
+ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES
+FRAMEWORK_SEARCH_PATHS = $(inherited) "${PODS_CONFIGURATION_BUILD_DIR}/GRDB.swift" "${PODS_CONFIGURATION_BUILD_DIR}/Roy" "${PODS_CONFIGURATION_BUILD_DIR}/UserPlugin"
 GCC_PREPROCESSOR_DEFINITIONS = $(inherited) COCOAPODS=1
 LD_RUNPATH_SEARCH_PATHS = $(inherited) '@executable_path/Frameworks' '@loader_path/Frameworks'
-OTHER_CFLAGS = $(inherited) -iquote "${PODS_CONFIGURATION_BUILD_DIR}/GRDB.swift/GRDB.framework/Headers" -iquote "${PODS_CONFIGURATION_BUILD_DIR}/Roy/Roy.framework/Headers"
+OTHER_CFLAGS = $(inherited) -iquote "${PODS_CONFIGURATION_BUILD_DIR}/GRDB.swift/GRDB.framework/Headers" -iquote "${PODS_CONFIGURATION_BUILD_DIR}/Roy/Roy.framework/Headers" -iquote "${PODS_CONFIGURATION_BUILD_DIR}/UserPlugin/UserPlugin.framework/Headers"
+OTHER_LDFLAGS = $(inherited) -framework "GRDB" -framework "Roy" -framework "UserPlugin"
+OTHER_SWIFT_FLAGS = $(inherited) "-D" "COCOAPODS"
 PODS_BUILD_DIR = ${BUILD_DIR}
 PODS_CONFIGURATION_BUILD_DIR = ${PODS_BUILD_DIR}/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)
 PODS_PODFILE_DIR_PATH = ${SRCROOT}/.

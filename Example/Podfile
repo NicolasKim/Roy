@@ -5,17 +5,11 @@ workspace 'Roy.xcworkspace'
 
 target 'Roy_Example' do
   pod 'Roy', :path => '../'
-	
+  pod 'UserPlugin', :path => '/Users/dreamtracer/Documents/Github-repo/UserPlugin'
   target 'Roy_Tests' do
     inherit! :search_paths
-
-
+	pod 'UserPlugin', :path => '/Users/dreamtracer/Documents/Github-repo/UserPlugin'
+	
   end
 end
 
-
-
-target 'TestModule' do
-    pod 'Roy', :path => '../'
-    project 'TestModule/TestModule.xcodeproj'
-end
