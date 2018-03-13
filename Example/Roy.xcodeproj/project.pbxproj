@@ -533,6 +533,7 @@
 			baseConfigurationReference = 24FB60024C91923E1750C433 /* Pods-Roy_Example.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				DEVELOPMENT_TEAM = GJ7HXA2QN2;
 				HEADER_SEARCH_PATHS = "$(SRCROOT)/TestModule";
 				INFOPLIST_FILE = Roy/Info.plist;
@@ -550,6 +551,7 @@
 			baseConfigurationReference = 51DA9F56BBFA3BC2EC91CE81 /* Pods-Roy_Example.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				DEVELOPMENT_TEAM = GJ7HXA2QN2;
 				HEADER_SEARCH_PATHS = "$(SRCROOT)/TestModule";
 				INFOPLIST_FILE = Roy/Info.plist;
