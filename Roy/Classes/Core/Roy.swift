@@ -50,30 +50,45 @@ public class RoyTaskMapping{
 
 
 
+
 public class RoyR: NSObject {
     
     static public let global = RoyR()
+    let lock = NSLock()
     var logDelegate : RoyLogProtocol?
     fileprivate var urlTaskMap : [String:RoyTaskMapping] = [:]
 	
+    /// 用默认日志系统
     public override init() {
         super.init()
         self.registLog(delegate: RoyDefaultLogSystem(saveToDB: true))
     }
 	
+    /// 自定义日志系统
+    ///
+    /// - Parameter logDelegate: 日志系统
     init(logDelegate:RoyLogProtocol) {
     	super.init()
         self.registLog(delegate: logDelegate)
     }
     
     
+    /// 添加url
+    ///
+    /// - Parameters:
+    ///   - url: url 格式为  "xxxx://xxxx/xxxx?x=<number/text?>"
+    ///   - task: 任务
+    ///   - paramValidator: 验证器 用来调用route方法时 验证传入的参数
+    /// - Returns: 添加成功与否
     open func addRouter(url:String , task:@escaping RoyTaskClosure,paramValidator:RoyValidatorProtocol.Type?) -> Bool {
         do {
             guard let u = RoyURLAnalyzer.convert(url: url) else {
                 throw RoyError.ConvertError
             }
             self.logDelegate?.addRegistLog(withURL: url, message: "convert success and added", errorType: RoyLogErrorType.None)
+            self.lock.lock()
             self.urlTaskMap[u.key] = RoyTaskMapping(url: u, task: task, validator: paramValidator)
+            self.lock.unlock()
         }
         catch RoyError.ConvertError{
             self.logDelegate?.addRegistLog(withURL: url, message: "convert error", errorType: RoyLogErrorType.ConvertError)
@@ -86,6 +101,13 @@ public class RoyR: NSObject {
         return true
     }
     
+    
+    /// url调用
+    ///
+    /// - Parameters:
+    ///   - url: url "xxxx://xxxx/xxxx?x=123" 其中x=123会合并到param中
+    ///   - param: 参数，可以是任意类型
+    /// - Returns: 任务执行过后的返回值
     open func route(url:URL , param : [String:Any]?) -> Any?{
         
         do {
