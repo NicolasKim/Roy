@@ -12,7 +12,7 @@ enum RoyURLParamType:String {
     case TEXT = "text"
 }
 
-struct RoyURLParam {
+public struct RoyURLParam {
     //是否为必填项
     var isNecessary = false
     //类型
@@ -21,7 +21,7 @@ struct RoyURLParam {
     var key  : String?
 }
 
-struct RoyURL{
+public struct RoyURL{
     var scheme : String
     var host   : String
     var path   : String
@@ -33,7 +33,7 @@ struct RoyURL{
     }
 }
 
-public class RoyURLAnalyzer {
+class RoyURLAnalyzer {
     
     static func getKey(url:String) -> String?{
         guard let scheme = getScheme(url: url) else {

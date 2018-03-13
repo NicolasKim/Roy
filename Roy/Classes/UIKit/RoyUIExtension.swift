@@ -69,11 +69,6 @@ public extension UIViewController{
         if let vc = RoyR.global.viewController(url: url, param: param){
             self.present(vc, animated: animated, completion: completion)
         }
-        else{
-            #if DEBUG
-                print("URL:\(url) did not registed,or the object mapped with \(url) is not a viewcontroller")
-            #endif
-        }
     }
 }
 
@@ -83,11 +78,6 @@ public extension UINavigationController{
         if let vc = RoyR.global.viewController(url: url,param:param){
             self.pushViewController(vc, animated: animated)
         }
-        else{
-            #if DEBUG
-                print("URL:\(url) did not registed,or the object mapped with \(url) is not a viewcontroller")
-            #endif
-        }
     }
     
     public func setViewControllers(urls : [URL], animated: Bool){
@@ -95,11 +85,6 @@ public extension UINavigationController{
         for url in urls {
             if let vc = RoyR.global.viewController(url: url,param:nil){
                 vcs.append(vc)
-            }
-            else{
-                #if DEBUG
-                    print("URL:\(url) did not registed,or the object mapped with \(url) is not a viewcontroller")
-                #endif
             }
         }
         self.setViewControllers(vcs, animated: animated)
@@ -114,11 +99,6 @@ public extension UITabBarController{
         for url in urls {
             if let vc = RoyR.global.viewController(url: url,param:nil){
                 vcs.append(vc)
-            }
-            else{
-                #if DEBUG
-                    print("URL:\(url) did not registed,or the object mapped with \(url) is not a viewcontroller")
-                #endif
             }
         }
         self.setViewControllers(vcs, animated: animated)

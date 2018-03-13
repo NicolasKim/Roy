@@ -17,7 +17,7 @@ public typealias RoyTaskClosure = ([String:Any]?)->Any
 public typealias RoyReturnClosure = (Any?)->Void
 
 public protocol RoyValidatorProtocol {
-    static func validate(params:[String:Any]?) -> (result:Bool,reason:String?)
+    static func validate(url:RoyURL, params:[String:Any]?) -> (result:Bool,reason:String?)
 }
 
 protocol RoyLogProtocol{
@@ -27,7 +27,7 @@ protocol RoyLogProtocol{
 
 enum RoyError : Error {
     case ConvertError
-    case ParamValidationError
+    case ParamValidationError(String?)
     case TaskNotFound
     case ErrorOther
 }
@@ -98,8 +98,9 @@ public class RoyR: NSObject {
                 newParam.combine(p)
             }
             if let validator = self.urlTaskMap[key]?.validator {
-                if !validator.validate(params: newParam).result {
-                    throw RoyError.ParamValidationError
+                let r = validator.validate(url:self.urlTaskMap[key]!.url, params: newParam)
+                if !r.result {
+                    throw RoyError.ParamValidationError(r.reason)
                 }
                 self.logDelegate?.addRouteLog(withURL: url.absoluteString, url_rule: nil, message: "param validate success", errorType: RoyLogErrorType.None)
             }
@@ -116,8 +117,8 @@ public class RoyR: NSObject {
         } catch RoyError.ConvertError {
             self.logDelegate?.addRouteLog(withURL: url.absoluteString, url_rule: nil, message: "convert error", errorType: RoyLogErrorType.ConvertError)
             return nil
-        } catch RoyError.ParamValidationError{
-            self.logDelegate?.addRouteLog(withURL: url.absoluteString, url_rule: nil, message: "param validate error", errorType: RoyLogErrorType.ParamValidateError)
+        } catch RoyError.ParamValidationError(let msg){
+            self.logDelegate?.addRouteLog(withURL: url.absoluteString, url_rule: nil, message: msg, errorType: RoyLogErrorType.ParamValidateError)
             return nil
         } catch RoyError.TaskNotFound{
             self.logDelegate?.addRouteLog(withURL: url.absoluteString, url_rule: nil, message: "there has no task", errorType: RoyLogErrorType.TaskNotFound)
