@@ -10,12 +10,18 @@ import Foundation
 enum RoyUIExtensionError :Error {
     case Convert
     case Unknown
-    
 }
 
 public protocol RoyProtocol {
     init?(param : [String:Any]?)
 }
+
+public func RoyPrint(_ items: Any..., separator: String = "", terminator: String = "\n"){
+#if DEBUG
+    print("Roy=> ",items, separator: separator, terminator: terminator)
+#endif
+}
+
 
 
 /*

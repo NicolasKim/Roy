@@ -50,13 +50,13 @@ class RoyDefaultLogSystem : RoyLogProtocol {
         	dbQueue = try DatabaseQueue(path: path)
         }
         catch{
-            print("roy logsystem init db error")
+            RoyPrint("roy logsystem init db error")
         }
     }
     
     func createTable(name:String) {
         do{
-            print("roy system db path:\(self.dbPath)")
+            RoyPrint("roy system db path:\(self.dbPath)")
             try self.dbQueue?.inDatabase({ db in
                 if try !db.tableExists(name) {
                     try db.create(table: name) { t in
@@ -72,7 +72,7 @@ class RoyDefaultLogSystem : RoyLogProtocol {
             })
         }
         catch{
-            print("roy system create table error")
+            RoyPrint("roy system create table error")
         }
         
     }
@@ -94,7 +94,7 @@ class RoyDefaultLogSystem : RoyLogProtocol {
                 })
             }
             catch{
-                print("roy logsystem save log to db error")
+                RoyPrint("roy logsystem save log to db error")
             }
         }
         
@@ -121,7 +121,7 @@ class RoyDefaultLogSystem : RoyLogProtocol {
                 })
             }
             catch{
-                print("roy logsystem save log to db error")
+                RoyPrint("roy logsystem save log to db error")
             }
         }
         self.delegate?.addRouteLog(withURL: url, url_rule: url_rule, message: message, errorType: errorType)

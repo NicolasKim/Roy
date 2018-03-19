@@ -25,12 +25,43 @@ protocol RoyLogProtocol{
     func addRouteLog(withURL url:String,url_rule:String?,message:String?,errorType:RoyLogErrorType)
 }
 
-enum RoyError : Error {
-    case ConvertError
-    case ParamValidationError(String?)
-    case TaskNotFound
-    case ErrorOther
+@objc public protocol RoyDelegate:NSObjectProtocol{
+    //add life cycle
+    @objc optional func willConvert(url:String)
+    @objc optional func didConverted(url:String,error:Error?)
+    @objc optional func willAdd(url:String)
+    @objc optional func didAdd(url:String,error:Error?)
+    
+    //route life cycle
+    @objc optional func willAnalyze(url:URL,param:[String:Any]?)
+    @objc optional func didAnalyzed(url:URL,param:[String:Any]?,error:Error?)
+    @objc optional func willValidate(url:URL,param:[String:Any]?)
+    @objc optional func didValidated(url:URL,param:[String:Any]?,error:Error?)
+    @objc optional func willFindTask(url:URL,param:[String:Any]?)
+    @objc optional func didFoundTask(url:URL,param:[String:Any]?,error:Error?)
+    @objc optional func willRoute(url:URL,param:[String:Any]?)
+    @objc optional func didRouted(url:URL,param:[String:Any]?,error:Error?)
 }
+
+struct RoyError : Error {
+    enum EType : Error {
+        case None
+        case ConvertError
+        case ParamValidationError
+        case TaskNotFound
+        case Other
+    }
+    
+    var type 	: EType = .None
+    var message	: String?
+    
+    init(type:EType,message:String?) {
+        self.type = type
+        self.message = message
+    }
+}
+
+
 
 
 
@@ -49,18 +80,19 @@ public class RoyTaskMapping{
 
 
 
-
+private var delegates  = NSHashTable<AnyObject>(options: NSPointerFunctions.Options.weakMemory)
 
 public class RoyR: NSObject {
     
     static public let global = RoyR()
     let lock = NSLock()
     var logDelegate : RoyLogProtocol?
+    let lifeCycleQueue:OperationQueue = OperationQueue()
     fileprivate var urlTaskMap : [String:RoyTaskMapping] = [:]
-	
     /// 用默认日志系统
     public override init() {
         super.init()
+        commonInit()
         self.registLog(delegate: RoyDefaultLogSystem(saveToDB: true))
     }
 	
@@ -69,7 +101,20 @@ public class RoyR: NSObject {
     /// - Parameter logDelegate: 日志系统
     init(logDelegate:RoyLogProtocol) {
     	super.init()
+        commonInit()
         self.registLog(delegate: logDelegate)
+    }
+    
+    func commonInit() {
+        lifeCycleQueue.maxConcurrentOperationCount = 1
+    }
+    
+    open func addRouter(url:String , task:@escaping RoyTaskClosure,paramValidator:RoyValidatorProtocol.Type?,inQueue queue:OperationQueue) -> Operation{
+        let op = BlockOperation {
+            _ = self.addRouter(url: url, task: task, paramValidator: paramValidator)
+        }
+        queue.addOperation(op)
+        return op
     }
     
     
@@ -82,20 +127,34 @@ public class RoyR: NSObject {
     /// - Returns: 添加成功与否
     open func addRouter(url:String , task:@escaping RoyTaskClosure,paramValidator:RoyValidatorProtocol.Type?) -> Bool {
         do {
+            self.willConvert(url: url)
             guard let u = RoyURLAnalyzer.convert(url: url) else {
-                throw RoyError.ConvertError
+                throw RoyError(type: .ConvertError, message: "convert error")
             }
+            self.didConverted(url: url, error: nil)
             self.logDelegate?.addRegistLog(withURL: url, message: "convert success and added", errorType: RoyLogErrorType.None)
             self.lock.lock()
+            self.willAdd(url: url)
             self.urlTaskMap[u.key] = RoyTaskMapping(url: u, task: task, validator: paramValidator)
+            self.didAdd(url: url, error: nil)
             self.lock.unlock()
         }
-        catch RoyError.ConvertError{
-            self.logDelegate?.addRegistLog(withURL: url, message: "convert error", errorType: RoyLogErrorType.ConvertError)
+        catch let error as RoyError{
+            switch error.type {
+            case .ConvertError:
+                self.didConverted(url: url, error: error)
+                self.logDelegate?.addRegistLog(withURL: url, message: "convert error", errorType: RoyLogErrorType.ConvertError)
+                RoyPrint("convert error,url=>\(url)")
+            default:
+                self.didAdd(url: url, error: error)
+                self.logDelegate?.addRegistLog(withURL: url, message: "unknown", errorType: RoyLogErrorType.Unknown)
+                RoyPrint("unknown error,url=>\(url)")
+            }
             return false
         }
         catch{
             self.logDelegate?.addRegistLog(withURL: url, message: "unknown", errorType: RoyLogErrorType.Unknown)
+            RoyPrint("unknown error,url=>\(url)")
             return false
         }
         return true
@@ -111,42 +170,66 @@ public class RoyR: NSObject {
     open func route(url:URL , param : [String:Any]?) -> Any?{
         
         do {
+            self.willAnalyze(url: url, param: param)
             guard let key = RoyURLAnalyzer.getKey(url: url.absoluteString) else {
-                throw RoyError.ConvertError
+                throw RoyError(type: .ConvertError, message: "convert error")
             }
+            self.didAnalyzed(url: url, param: param, error: nil)
             self.logDelegate?.addRouteLog(withURL: url.absoluteString, url_rule: nil, message: "convert success", errorType: RoyLogErrorType.None)
             var newParam = url.params
             if let p = param {
                 newParam.combine(p)
             }
+            self.willValidate(url: url, param: param)
             if let validator = self.urlTaskMap[key]?.validator {
                 let r = validator.validate(url:self.urlTaskMap[key]!.url, params: newParam)
                 if !r.result {
-                    throw RoyError.ParamValidationError(r.reason)
+                    throw RoyError(type: .ParamValidationError, message: r.reason)
                 }
                 self.logDelegate?.addRouteLog(withURL: url.absoluteString, url_rule: nil, message: "param validate success", errorType: RoyLogErrorType.None)
             }
+            self.didValidated(url: url, param: param, error: nil)
             
+            self.willFindTask(url: url, param: param)
             guard let t = self.urlTaskMap[key]?.task else {
-                throw RoyError.TaskNotFound
+                throw RoyError(type: .TaskNotFound, message: "there has no task")
             }
+            self.didFoundTask(url: url, param: param, error: nil)
             
+            self.willRoute(url: url, param: param)
             self.logDelegate?.addRouteLog(withURL: url.absoluteString, url_rule: nil, message: "find task success", errorType: RoyLogErrorType.None)
             let returnValue = t(newParam)
-            
+            self.didRouted(url: url, param: param, error: nil)
             return returnValue
             
-        } catch RoyError.ConvertError {
-            self.logDelegate?.addRouteLog(withURL: url.absoluteString, url_rule: nil, message: "convert error", errorType: RoyLogErrorType.ConvertError)
-            return nil
-        } catch RoyError.ParamValidationError(let msg){
-            self.logDelegate?.addRouteLog(withURL: url.absoluteString, url_rule: nil, message: msg, errorType: RoyLogErrorType.ParamValidateError)
-            return nil
-        } catch RoyError.TaskNotFound{
-            self.logDelegate?.addRouteLog(withURL: url.absoluteString, url_rule: nil, message: "there has no task", errorType: RoyLogErrorType.TaskNotFound)
+        } catch let error as RoyError {
+            switch error.type {
+            case .ConvertError:
+                self.didAnalyzed(url: url, param: param, error: error)
+                self.logDelegate?.addRouteLog(withURL: url.absoluteString, url_rule: nil, message: "convert error", errorType: RoyLogErrorType.ConvertError)
+                RoyPrint("convert error,url=>\(url.absoluteString)")
+            case .ParamValidationError:
+                self.didValidated(url: url, param: param, error: error)
+                self.logDelegate?.addRouteLog(withURL: url.absoluteString, url_rule: nil, message: error.message, errorType: RoyLogErrorType.ParamValidateError)
+                if let m = error.message {
+                    RoyPrint("param validation error,reason:\(m),url=>\(url.absoluteString)")
+                }
+                else{
+                    RoyPrint("param validation error,url=>\(url.absoluteString)")
+                }
+            case .TaskNotFound:
+                self.didFoundTask(url: url, param: param, error: error)
+                self.logDelegate?.addRouteLog(withURL: url.absoluteString, url_rule: nil, message: "there has no task", errorType: RoyLogErrorType.TaskNotFound)
+                RoyPrint("there has no task,url=>\(url.absoluteString)")
+            default:
+                self.didRouted(url: url, param: param, error: error)
+                self.logDelegate?.addRouteLog(withURL: url.absoluteString, url_rule: nil, message: "unknown", errorType: RoyLogErrorType.Unknown)
+                RoyPrint("unknown,url=>\(url.absoluteString)")
+            }
             return nil
         } catch{
             self.logDelegate?.addRouteLog(withURL: url.absoluteString, url_rule: nil, message: "unknown", errorType: RoyLogErrorType.Unknown)
+            RoyPrint("unknown,url=>\(url.absoluteString)")
             return nil
         }
     }
@@ -169,6 +252,95 @@ extension RoyR{
     }
 }
 
+
+extension RoyR:RoyDelegate{
+    public static func regist(delegate:RoyDelegate){
+        if !delegates.contains(delegate){
+        	delegates.add(delegate)
+        }
+    }
+    
+    public static func unregist(delegate:RoyDelegate){
+        if delegates.contains(delegate){
+        	delegates.remove(delegate)
+        }
+    }
+    
+    func doInLoop(f:@escaping (_ o:RoyDelegate)->Void) {
+        self.lifeCycleQueue.addOperation {
+            for i in delegates.allObjects {
+                if let obj = i as? RoyDelegate{
+                    f(obj)
+                }
+            }
+        }
+    }
+    
+    
+    //add life cycle
+    public func willConvert(url:String){
+        doInLoop { (obj) in
+            obj.willConvert?(url: url)
+        }
+    }
+    public func didConverted(url:String,error:Error?){
+        doInLoop { (obj) in
+            obj.didConverted?(url: url, error: error)
+        }
+    }
+    public func willAdd(url:String){
+        doInLoop { (obj) in
+            obj.willAdd?(url: url)
+        }
+    }
+    public func didAdd(url:String,error:Error?){
+        doInLoop { (obj) in
+            obj.didAdd?(url: url,error: error)
+        }
+    }
+    //route life cycle
+    public func willAnalyze(url:URL,param:[String:Any]?){
+        doInLoop { (obj) in
+            obj.willAnalyze?(url: url, param: param)
+        }
+    }
+    public func didAnalyzed(url:URL,param:[String:Any]?,error:Error?){
+        doInLoop { (obj) in
+            obj.didAnalyzed?(url: url, param: param, error: error)
+        }
+    }
+    public func willValidate(url:URL,param:[String:Any]?){
+        doInLoop { (obj) in
+            obj.willValidate?(url: url, param: param)
+        }
+    }
+    public func didValidated(url:URL,param:[String:Any]?,error:Error?){
+        doInLoop { (obj) in
+            obj.didValidated?(url: url, param: param, error: error)
+        }
+    }
+    public func willFindTask(url:URL,param:[String:Any]?){
+        doInLoop { (obj) in
+            obj.willFindTask?(url: url, param: param)
+        }
+    }
+    public func didFoundTask(url:URL,param:[String:Any]?,error:Error?){
+        doInLoop { (obj) in
+            obj.didFoundTask?(url: url, param: param, error: error)
+        }
+    }
+    public func willRoute(url:URL,param:[String:Any]?){
+        doInLoop { (obj) in
+            obj.willRoute?(url: url, param: param)
+        }
+    }
+    public func didRouted(url:URL,param:[String:Any]?,error:Error?){
+        doInLoop { (obj) in
+            obj.didRouted?(url: url, param: param, error: error)
+        }
+    }
+    
+}
 
 
 private var key: Void?
