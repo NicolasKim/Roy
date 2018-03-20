@@ -12,14 +12,12 @@ open class RoyAppDelegate : NSObject, UIApplicationDelegate {
 
     fileprivate var moduleMap : [String : RoyModuleProtocol] = [:]
 
-    public var appScheme : String = "Roy"
-
     public func addModule(_ module : RoyModuleProtocol) {
         self.moduleMap[module.moduleHost] = module
     }
 
     public func addModuleClass(_ moduleClass : RoyModuleProtocol.Type , host : String) {
-        let module = moduleClass.init(appScheme: appScheme, host: host)
+        let module = moduleClass.init(host: host)
         self.moduleMap[module.moduleHost] = module
     }
     

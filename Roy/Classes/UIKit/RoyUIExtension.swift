@@ -58,12 +58,12 @@ public extension RoyR{
 
 public extension RoyModuleProtocol{
     public func viewController(path:String,param:[String:Any]?) -> UIViewController?{
-        let urlString = "\(self.scheme)://\(moduleHost)/\(path)"
+        let urlString = "\(RoyModuleConfig.sharedInstance.scheme)://\(moduleHost)/\(path)"
         let url = URL(string: urlString)
         return RoyR.global.viewController(url: url!, param: param)
     }
     public func addRouter(path:String , viewController : RoyProtocol.Type,paramValidator:RoyValidatorProtocol.Type?) -> Bool{
-        let urlString = "\(self.scheme)://\(moduleHost)/\(path)"
+        let urlString = "\(RoyModuleConfig.sharedInstance.scheme)://\(moduleHost)/\(path)"
         return RoyR.global.addRouter(url: urlString, viewController: viewController, paramValidator: paramValidator)
     }
 }
