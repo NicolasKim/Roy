@@ -12,7 +12,7 @@
 import UIKit
 
 
-public typealias RoyTaskClosure = ([String:Any]?)->Any
+public typealias RoyTaskClosure = ([String:Any]?)->Any?
 
 public typealias RoyReturnClosure = (Any?)->Void
 
@@ -111,7 +111,7 @@ public class RoyR: NSObject {
     
     open func addRouter(url:String , task:@escaping RoyTaskClosure,paramValidator:RoyValidatorProtocol.Type?,inQueue queue:OperationQueue) -> Operation{
         let op = BlockOperation {
-            _ = self.addRouter(url: url, task: task, paramValidator: paramValidator)
+            _ = self.addRouter(url: url , paramValidator: paramValidator, task: task)
         }
         queue.addOperation(op)
         return op
@@ -125,7 +125,7 @@ public class RoyR: NSObject {
     ///   - task: 任务
     ///   - paramValidator: 验证器 用来调用route方法时 验证传入的参数
     /// - Returns: 添加成功与否
-    open func addRouter(url:String , task:@escaping RoyTaskClosure,paramValidator:RoyValidatorProtocol.Type?) -> Bool {
+    open func addRouter(url:String ,paramValidator:RoyValidatorProtocol.Type? , task:@escaping RoyTaskClosure) -> Bool {
         do {
             self.willConvert(url: url)
             guard let u = RoyURLAnalyzer.convert(url: url) else {

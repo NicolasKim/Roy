@@ -36,7 +36,7 @@ public extension RoyR{
             }
             return nil
         }
-        return self.addRouter(url: url, task: c, paramValidator: paramValidator)
+        return self.addRouter(url: url, paramValidator: paramValidator, task: c)
     }
     
     public func viewController(url:URL,param:[String:Any]?) -> UIViewController?{

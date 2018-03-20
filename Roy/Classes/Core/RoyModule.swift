@@ -6,7 +6,7 @@
 public extension RoyModuleProtocol{
     public func addRouter(path:String , task:@escaping RoyTaskClosure,paramValidator:RoyValidatorProtocol.Type?) -> Bool {
     	let urlString = "\(self.scheme)://\(moduleHost)/\(path)"
-    	return RoyR.global.addRouter(url: urlString, task: task, paramValidator: paramValidator)
+    	return RoyR.global.addRouter(url: urlString, paramValidator: paramValidator, task: task)
     }
     
     public func route(path:String ,param : [String:Any]?  , task:@escaping RoyReturnClosure) -> Bool {
