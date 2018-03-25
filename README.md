@@ -23,14 +23,14 @@ pod "Roy"
 
 ### Add route
 
-```Objective-C
+```Swift
 _ = RoyR.global.addRouter(url: "test://testhost/testpath?param1=<number?>", paramValidator: nil, task: { (param) -> Any? in
 //task
 return any value
 })
 ```
 ### Route
-```Objective-C
+```Swift
 //run task in current queue
 _ = RoyR.global.route(url: URL(string: "test://testhost/testpath?param1=<number?>")!, param: [param1:123123])
 
