@@ -56,20 +56,20 @@ the `?` means optional
 
 * Set app scheme
 
-```
+```Swift
 RoyModuleConfig.sharedInstance.scheme = "test"
 ```
 
 * Regist module to RoyAppDelegate ,the host will mapping to module
 
-```
+```Swift
 RoyAppDelegate.sharedInstance.addModuleClass(UserPluginDelegate.self, host: "testmodule")
 ```
 
 
 The module have to subclassing the `RoyModule` like,
 
-```
+```Swift
 public required init(host: String) {
         super.init(host: host)
         _ = self.addRouter(path: "initializeviewcontroller", viewController: TMViewController.self,paramValidator:nil)
