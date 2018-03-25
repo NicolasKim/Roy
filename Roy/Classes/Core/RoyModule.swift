@@ -12,7 +12,7 @@ public class RoyModuleConfig {    static public let sharedInstance = RoyModuleC
     ///   - param:参数
     ///   - task: 任务
     /// - Returns: 任务执行结果
-    func route(path: String, param: [String: Any]?, task: @escaping RoyReturnClosure) -> Bool    /// 注册任务
+    func route(path: String, param: [String: Any]?, task: @escaping RoyReturnClosure) -> Operation    /// 注册任务
     ///
     /// - Parameters:
     ///   - path: 任务对应的path，也就是任务名称
@@ -32,7 +32,7 @@ public class RoyModuleConfig {    static public let sharedInstance = RoyModuleC
     ///   - path: 任务对应的path，也就是任务名称
     ///   - param:参数
     ///   - task: 任务
-    /// - Returns: 任务执行结果    public func route(path: String, param: [String: Any]?, task: @escaping RoyReturnClosure) -> Bool {        let urlString = "\(RoyModuleConfig.sharedInstance.scheme)://\(moduleHost)/\(path)"        let url = URL(string: urlString)        return RoyR.global.route(url: url!, param: param, task: task)    }}open class RoyModule: NSObject, RoyModuleProtocol {    public var moduleHost: String	    /// 默认初始化方法
+    /// - Returns: 任务执行结果    public func route(path: String, param: [String: Any]?, task: @escaping RoyReturnClosure) -> Operation {        let urlString = "\(RoyModuleConfig.sharedInstance.scheme)://\(moduleHost)/\(path)"        let url = URL(string: urlString)        return RoyR.global.route(url: url!, param: param, task: task)    }}open class RoyModule: NSObject, RoyModuleProtocol {    public var moduleHost: String	    /// 默认初始化方法
     ///
     /// - Parameter host: 模块儿对应的host
     public required init(host: String) {        moduleHost = host        super.init()    }}
