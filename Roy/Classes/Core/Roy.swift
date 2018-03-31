@@ -32,23 +32,42 @@ protocol RoyLogProtocol{
 }
 
 /// Roy生命周期协议，全部为可选
-@objc public protocol RoyDelegate:NSObjectProtocol{
+public protocol RoyDelegate{
     //add life cycle
-    @objc optional func willConvert(url:String)
-    @objc optional func didConverted(url:String,error:Error?)
-    @objc optional func willAdd(url:String)
-    @objc optional func didAdd(url:String,error:Error?)
+    func willConvert(url:String)
+    func didConverted(url:String,error:Error?)
+    func willAdd(url:String)
+    func didAdd(url:String,error:Error?)
     
     //route life cycle
-    @objc optional func willAnalyze(url:URL,param:[String:Any]?)
-    @objc optional func didAnalyzed(url:URL,param:[String:Any]?,error:Error?)
-    @objc optional func willValidate(url:URL,param:[String:Any]?)
-    @objc optional func didValidated(url:URL,param:[String:Any]?,error:Error?)
-    @objc optional func willFindTask(url:URL,param:[String:Any]?)
-    @objc optional func didFoundTask(url:URL,param:[String:Any]?,error:Error?)
-    @objc optional func willRoute(url:URL,param:[String:Any]?)
-    @objc optional func didRouted(url:URL,param:[String:Any]?,error:Error?)
+    func willAnalyze(url:URL,param:[String:Any]?)
+    func didAnalyzed(url:URL,param:[String:Any]?,error:Error?)
+    func willValidate(url:URL,param:[String:Any]?)
+    func didValidated(url:URL,param:[String:Any]?,error:Error?)
+    func willFindTask(url:URL,param:[String:Any]?)
+    func didFoundTask(url:URL,param:[String:Any]?,error:Error?)
+    func willRoute(url:URL,param:[String:Any]?)
+    func didRouted(url:URL,param:[String:Any]?,error:Error?)
 }
+
+extension RoyDelegate{
+    //add life cycle
+    public func willConvert(url:String){}
+    public func didConverted(url:String,error:Error?){}
+    public func willAdd(url:String){}
+    public func didAdd(url:String,error:Error?){}
+    
+    //route life cycle
+    public func willAnalyze(url:URL,param:[String:Any]?){}
+    public func didAnalyzed(url:URL,param:[String:Any]?,error:Error?){}
+    public func willValidate(url:URL,param:[String:Any]?){}
+    public func didValidated(url:URL,param:[String:Any]?,error:Error?){}
+    public func willFindTask(url:URL,param:[String:Any]?){}
+    public func didFoundTask(url:URL,param:[String:Any]?,error:Error?){}
+    public func willRoute(url:URL,param:[String:Any]?){}
+    public func didRouted(url:URL,param:[String:Any]?,error:Error?){}
+}
+
 
 
 /// Roy错误结构体
@@ -310,88 +329,88 @@ extension RoyR{
 
 extension RoyR:RoyDelegate{
     public static func regist(delegate:RoyDelegate){
-        if !delegates.contains(delegate){
-        	delegates.add(delegate)
+        if !delegates.contains(delegate as AnyObject){
+            delegates.add(delegate as AnyObject)
         }
     }
     
     public static func unregist(delegate:RoyDelegate){
-        if delegates.contains(delegate){
-        	delegates.remove(delegate)
+        if delegates.contains(delegate as AnyObject){
+            delegates.remove(delegate as AnyObject)
         }
     }
     
     func doInLoop(f:@escaping (_ o:RoyDelegate)->Void) {
-        self.lifeCycleQueue.addOperation {
+//        self.lifeCycleQueue.addOperation {
             for i in delegates.allObjects {
                 if let obj = i as? RoyDelegate{
                     f(obj)
                 }
             }
-        }
+//        }
     }
     
     
     //add life cycle
     public func willConvert(url:String){
         doInLoop { (obj) in
-            obj.willConvert?(url: url)
+            obj.willConvert(url: url)
         }
     }
     public func didConverted(url:String,error:Error?){
         doInLoop { (obj) in
-            obj.didConverted?(url: url, error: error)
+            obj.didConverted(url: url, error: error)
         }
     }
     public func willAdd(url:String){
         doInLoop { (obj) in
-            obj.willAdd?(url: url)
+            obj.willAdd(url: url)
         }
     }
     public func didAdd(url:String,error:Error?){
         doInLoop { (obj) in
-            obj.didAdd?(url: url,error: error)
+            obj.didAdd(url: url,error: error)
         }
     }
     //route life cycle
     public func willAnalyze(url:URL,param:[String:Any]?){
         doInLoop { (obj) in
-            obj.willAnalyze?(url: url, param: param)
+            obj.willAnalyze(url: url, param: param)
         }
     }
     public func didAnalyzed(url:URL,param:[String:Any]?,error:Error?){
         doInLoop { (obj) in
-            obj.didAnalyzed?(url: url, param: param, error: error)
+            obj.didAnalyzed(url: url, param: param, error: error)
         }
     }
     public func willValidate(url:URL,param:[String:Any]?){
         doInLoop { (obj) in
-            obj.willValidate?(url: url, param: param)
+            obj.willValidate(url: url, param: param)
         }
     }
     public func didValidated(url:URL,param:[String:Any]?,error:Error?){
         doInLoop { (obj) in
-            obj.didValidated?(url: url, param: param, error: error)
+            obj.didValidated(url: url, param: param, error: error)
         }
     }
     public func willFindTask(url:URL,param:[String:Any]?){
         doInLoop { (obj) in
-            obj.willFindTask?(url: url, param: param)
+            obj.willFindTask(url: url, param: param)
         }
     }
     public func didFoundTask(url:URL,param:[String:Any]?,error:Error?){
         doInLoop { (obj) in
-            obj.didFoundTask?(url: url, param: param, error: error)
+            obj.didFoundTask(url: url, param: param, error: error)
         }
     }
     public func willRoute(url:URL,param:[String:Any]?){
         doInLoop { (obj) in
-            obj.willRoute?(url: url, param: param)
+            obj.willRoute(url: url, param: param)
         }
     }
     public func didRouted(url:URL,param:[String:Any]?,error:Error?){
         doInLoop { (obj) in
-            obj.didRouted?(url: url, param: param, error: error)
+            obj.didRouted(url: url, param: param, error: error)
         }
     }
     

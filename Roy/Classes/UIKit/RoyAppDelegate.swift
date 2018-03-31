@@ -6,19 +6,46 @@ import UIKit
 import CloudKit
 
 
-open class RoyAppDelegate : NSObject, UIApplicationDelegate {
+open class RoyAppDelegate : NSObject, UIApplicationDelegate,RoyDelegate {
 
     static public let sharedInstance = RoyAppDelegate()
 
     fileprivate var moduleMap : [String : RoyModuleProtocol] = [:]
-
-    public func addModule(_ module : RoyModuleProtocol) {
-        self.moduleMap[module.moduleHost] = module
+    fileprivate var lazyModuleMap : [String : RoyModuleProtocol.Type] = [:]
+    fileprivate var lock = NSLock()
+    public override init() {
+        super.init()
+		RoyR.regist(delegate: self)
     }
-
-    public func addModuleClass(_ moduleClass : RoyModuleProtocol.Type , host : String) {
-        let module = moduleClass.init(host: host)
-        self.moduleMap[module.moduleHost] = module
+    
+    
+    public func didAnalyzed(url:URL,param:[String:Any]?,error:Error?){
+        guard let host = RoyURLAnalyzer.getHost(url: url.absoluteString) else {
+            return
+        }
+        
+        lock.lock()
+        guard let c = lazyModuleMap[host] else {
+            lock.unlock()
+            return
+        }
+        
+        self.moduleMap[c.host()] = c.init(host: c.host())
+        lazyModuleMap = lazyModuleMap.drop { (key,value) -> Bool in
+            return key == c.host()
+        }.base
+		
+        lock.unlock()
+    }
+    
+    public func addModuleClass(_ moduleClass : RoyModuleProtocol.Type) {
+        switch moduleClass.loadModuleMode() {
+        case .Immediately:
+            let module = moduleClass.init(host: moduleClass.host())
+            self.moduleMap[moduleClass.host()] = module
+        case .Lazily:
+            self.lazyModuleMap[moduleClass.host()] = moduleClass
+        }
     }
     
     public func module(host : String) -> RoyModuleProtocol?{

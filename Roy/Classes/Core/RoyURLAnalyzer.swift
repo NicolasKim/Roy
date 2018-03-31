@@ -33,7 +33,7 @@ public struct RoyURL{
     }
 }
 
-class RoyURLAnalyzer {
+public class RoyURLAnalyzer {
     
     static func getKey(url:String) -> String?{
         guard let scheme = getScheme(url: url) else {
@@ -64,6 +64,9 @@ class RoyURLAnalyzer {
         }
         return "\(scheme)://\(host)/\(path)"
     }
+    
+    
+    
     
     
     

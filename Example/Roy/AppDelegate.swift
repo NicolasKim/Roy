@@ -25,7 +25,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         RoyModuleConfig.sharedInstance.scheme = "test"
 
         //addModule
-        RoyAppDelegate.sharedInstance.addModuleClass(UserPluginDelegate.self, host: "testmodule")
+        RoyAppDelegate.sharedInstance.addModuleClass(UserPluginDelegate.self)
 
         if let vc = RoyAppDelegate.sharedInstance.module(host: "testmodule")?.viewController(path: "initializeviewcontroller", param: nil){
             self.window = UIWindow(frame: UIScreen.main.bounds)
