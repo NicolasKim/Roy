@@ -1,0 +1,6 @@
+framework module Platform {
+  umbrella header "Platform-umbrella.h"
+
+  export *
+  module * { export * }
+}

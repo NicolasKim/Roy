@@ -9,7 +9,10 @@
 import UIKit
 
 import Roy
+import Platform
+
 import UserPlugin
+
 
 
 
@@ -22,15 +25,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         //set scheme
-        RoyModuleConfig.sharedInstance.scheme = "test"
-
+        RoyModuleConfig.sharedInstance.scheme = "roy"
         //addModule
         RoyAppDelegate.sharedInstance.addModuleClass(UserPluginDelegate.self)
-
-        if let vc = RoyAppDelegate.sharedInstance.module(host: "testmodule")?.viewController(path: "initializeviewcontroller", param: nil){
-            self.window = UIWindow(frame: UIScreen.main.bounds)
-            self.window?.rootViewController = vc
-        }
+        RoyAppDelegate.sharedInstance.addModuleClass(PlatformDelegate.self)
+		self.window = UIWindow(frame: UIScreen.main.bounds)
         return RoyAppDelegate.sharedInstance.application(application,didFinishLaunchingWithOptions:launchOptions)
     }
 

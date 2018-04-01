@@ -38,6 +38,16 @@ public extension RoyR{
         }
         return self.addRouter(url: url, paramValidator: paramValidator, task: c)
     }
+
+
+    public func addRouter(urlWithoutScheme:String , viewController : RoyProtocol.Type ,paramValidator: RoyValidatorProtocol.Type?) -> Bool{
+        return self.addRouter(
+                url: RoyModuleConfig.sharedInstance.getFullURL(urlWithoutScheme: urlWithoutScheme),
+                viewController: viewController,
+                paramValidator: paramValidator
+        )
+    }
+
     
     public func viewController(url:URL,param:[String:Any]?) -> UIViewController?{
         do{
@@ -53,18 +63,27 @@ public extension RoyR{
             return nil
         }
     }
-    
+
+    public func viewController(urlWithoutScheme:String,param:[String:Any]?) -> UIViewController?{
+        if let u = URL(string: RoyModuleConfig.sharedInstance.getFullURL(urlWithoutScheme: urlWithoutScheme)){
+            return self.viewController(
+                    url: u,
+                    param: param
+            )
+        }
+        return nil
+    }
+
 }
 
 public extension RoyModuleProtocol{
-    public func viewController(path:String,param:[String:Any]?) -> UIViewController?{
-        let urlString = "\(RoyModuleConfig.sharedInstance.scheme)://\(moduleHost)/\(path)"
-        let url = URL(string: urlString)
-        return RoyR.global.viewController(url: url!, param: param)
-    }
     public func addRouter(path:String , viewController : RoyProtocol.Type,paramValidator:RoyValidatorProtocol.Type?) -> Bool{
         let urlString = "\(RoyModuleConfig.sharedInstance.scheme)://\(moduleHost)/\(path)"
-        return RoyR.global.addRouter(url: urlString, viewController: viewController, paramValidator: paramValidator)
+        return RoyR.global.addRouter(
+                url: urlString,
+                viewController: viewController,
+                paramValidator: paramValidator
+        )
     }
 }
 
@@ -76,6 +95,12 @@ public extension UIViewController{
             self.present(vc, animated: animated, completion: completion)
         }
     }
+
+    public func present(urlWithoutScheme : String, param : [String:Any]?, animated: Bool, completion: (() -> Void)?){
+        if let u = URL(string: RoyModuleConfig.sharedInstance.getFullURL(urlWithoutScheme: urlWithoutScheme)){
+            self.present(url: u, param: param, animated: animated, completion: completion)
+        }
+    }
 }
 
 
@@ -85,11 +110,26 @@ public extension UINavigationController{
             self.pushViewController(vc, animated: animated)
         }
     }
+    public func pushViewController(urlWithoutScheme: String , param : [String : Any] , animated: Bool){
+        if let u = URL(string: RoyModuleConfig.sharedInstance.getFullURL(urlWithoutScheme: urlWithoutScheme)){
+            self.pushViewController(url: u, param: param, animated: animated)
+        }
+    }
     
     public func setViewControllers(urls : [URL], animated: Bool){
         var vcs : [UIViewController] = []
         for url in urls {
             if let vc = RoyR.global.viewController(url: url,param:nil){
+                vcs.append(vc)
+            }
+        }
+        self.setViewControllers(vcs, animated: animated)
+    }
+
+    public func setViewControllers(urlsWithoutScheme : [String], animated: Bool){
+        var vcs : [UIViewController] = []
+        for urlWithoutScheme in urlsWithoutScheme {
+            if let vc = RoyR.global.viewController(urlWithoutScheme: urlWithoutScheme, param: nil){
                 vcs.append(vc)
             }
         }
@@ -109,5 +149,13 @@ public extension UITabBarController{
         }
         self.setViewControllers(vcs, animated: animated)
     }
-    
+    public func setViewControllers(urlsWithoutScheme : [String], animated: Bool){
+        var vcs : [UIViewController] = []
+        for urlWithoutScheme in urlsWithoutScheme {
+            if let vc = RoyR.global.viewController(urlWithoutScheme: urlWithoutScheme, param: nil){
+                vcs.append(vc)
+            }
+        }
+        self.setViewControllers(vcs, animated: animated)
+    }
 }
