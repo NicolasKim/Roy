@@ -8,11 +8,13 @@ target 'Roy_Example' do
   pod 'UserPlugin', :path => './UserPlugin'
   pod 'Platform', :path => './Platform'
   pod 'AuthPlugin', :path => './AuthPlugin'
+  pod 'SnapKit', '~> 4.0.0'
   target 'Roy_Tests' do
     inherit! :search_paths
 	pod 'UserPlugin', :path => './UserPlugin'
 	pod 'Platform', :path => './Platform'
     pod 'AuthPlugin', :path => './AuthPlugin'
+    pod 'SnapKit', '~> 4.0.0'
   end
 end
 

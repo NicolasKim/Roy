@@ -31,10 +31,7 @@ open class RoyAppDelegate : NSObject, UIApplicationDelegate,RoyDelegate {
         }
         
         self.moduleMap[c.host()] = c.init(host: c.host())
-        lazyModuleMap = lazyModuleMap.drop { (key,value) -> Bool in
-            return key == c.host()
-        }.base
-		
+        lazyModuleMap.removeValue(forKey: c.host())
         lock.unlock()
     }
     

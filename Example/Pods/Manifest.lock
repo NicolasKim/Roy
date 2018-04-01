@@ -11,13 +11,16 @@ PODS:
     - GRDB.swift
   - Roy/UI (0.0.2):
     - Roy/Core
+  - SnapKit (4.0.0)
   - UserPlugin (0.1.0):
     - Roy
+    - SnapKit (~> 4.0.0)
 
 DEPENDENCIES:
   - AuthPlugin (from `./AuthPlugin`)
   - Platform (from `./Platform`)
   - Roy (from `../`)
+  - SnapKit (~> 4.0.0)
   - UserPlugin (from `./UserPlugin`)
 
 EXTERNAL SOURCES:
@@ -35,8 +38,9 @@ SPEC CHECKSUMS:
   GRDB.swift: db8429f12d250f3056df82eb3409e5af083948ca
   Platform: 83ca8e6708e645c9d375ad2283e6354bb5d48525
   Roy: c1371329cae100b46311930c39edcc6eef8be35a
-  UserPlugin: 840bb24391b799721b8e398252c83d7c8d5bf1b9
+  SnapKit: a42d492c16e80209130a3379f73596c3454b7694
+  UserPlugin: b811ab2f964070afb6d206ba1388ff7a12de9576
 
-PODFILE CHECKSUM: e002b4951c4fdbda053ccdbbdaf73bcd132953c7
+PODFILE CHECKSUM: 45591f41c4ae45044be0ac92e9c773f4b4638a06
 
 COCOAPODS: 1.4.0

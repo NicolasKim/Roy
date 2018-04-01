@@ -4,27 +4,46 @@
 
 import UIKit
 import Roy
+import SnapKit
 
+class UserHeaderView: UIView {
+    
+    private var avatarView : UIImageView?
+    private var nickNameLabel : UILabel?
+    
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+        avatarView = UIImageView(frame: CGRect.zero)
+        avatarView?.translatesAutoresizingMaskIntoConstraints = false
+        avatarView?.backgroundColor = UIColor.black
+        nickNameLabel = UILabel(frame: CGRect.zero)
+        nickNameLabel?.translatesAutoresizingMaskIntoConstraints = false
+        self.addSubview(avatarView!)
+        self.addSubview(nickNameLabel!)
+        avatarView?.snp.makeConstraints({ (make) in
+            make.width.equalTo(64)
+            make.height.equalTo(64)
+            make.top.equalTo(50)
+            make.centerX.equalTo(self.snp.centerX)
+        })
+
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
+}
 
 class UserViewController: UIViewController,RoyProtocol,UITableViewDataSource,UITableViewDelegate {
 
     var color : UIColor
-    var tableView : UITableView{
-        get{
-            let t = UITableView(frame: self.view.bounds, style: .plain)
-            t.delegate = self
-            t.dataSource = self
-            t.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
-            return t
-        }
-    }
-    var callback : (_ userInfo:Dictionary<String,Any>?,_ error:Error?)->Void
+    var tableView : UITableView?
+    var headerView : UserHeaderView?
 
     required init?(param: [String : Any]?) {
         let type = param?["c"] as! String
-		self.callback = { (userInfo,error) in
-            print(userInfo,error)
-        }
+		
         switch type {
         case "1":
             color = UIColor.red
@@ -48,7 +67,16 @@ class UserViewController: UIViewController,RoyProtocol,UITableViewDataSource,UIT
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.view.addSubview(self.tableView)
+        
+        self.tableView = UITableView(frame: self.view.bounds, style: .plain)
+        self.tableView?.delegate = self
+        self.tableView?.dataSource = self
+        self.tableView?.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
+        
+        
+        self.headerView = UserHeaderView(frame: CGRect(x: 0, y: 0, width: self.view.bounds.width, height: 164))
+        self.tableView?.tableHeaderView = self.headerView
+        self.view.addSubview(self.tableView!)
     }
 
     override func didReceiveMemoryWarning() {
@@ -71,7 +99,9 @@ class UserViewController: UIViewController,RoyProtocol,UITableViewDataSource,UIT
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        _ = RoyR.global.route(urlWithoutScheme: "auth/github/login", param: ["callback":self.callback])
+        _ = RoyR.global.route(urlWithoutScheme: "auth/github/login", param: ["callback":{ (userInfo,error) in
+            	print(userInfo,error)
+            }])
     }
     
     
