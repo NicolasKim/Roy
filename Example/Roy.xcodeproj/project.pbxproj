@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		554E7E95206007CC00F67A7F /* TestLifeCycle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 554E7E94206007CC00F67A7F /* TestLifeCycle.swift */; };
+		558E78992070E60C00FB527D /* SafariServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 558E78982070E60C00FB527D /* SafariServices.framework */; };
 		607FACD61AFB9204008FA782 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACD51AFB9204008FA782 /* AppDelegate.swift */; };
 		607FACD81AFB9204008FA782 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACD71AFB9204008FA782 /* ViewController.swift */; };
 		607FACDB1AFB9204008FA782 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 607FACD91AFB9204008FA782 /* Main.storyboard */; };
@@ -49,6 +50,7 @@
 		4D0675FEF5C8853F5C1FE66B /* Roy.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = Roy.podspec; path = ../Roy.podspec; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		51DA9F56BBFA3BC2EC91CE81 /* Pods-Roy_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Roy_Example.release.xcconfig"; path = "Pods/Target Support Files/Pods-Roy_Example/Pods-Roy_Example.release.xcconfig"; sourceTree = "<group>"; };
 		554E7E94206007CC00F67A7F /* TestLifeCycle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestLifeCycle.swift; sourceTree = "<group>"; };
+		558E78982070E60C00FB527D /* SafariServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SafariServices.framework; path = System/Library/Frameworks/SafariServices.framework; sourceTree = SDKROOT; };
 		607FACD01AFB9204008FA782 /* Roy_Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Roy_Example.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		607FACD41AFB9204008FA782 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		607FACD51AFB9204008FA782 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -71,6 +73,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				558E78992070E60C00FB527D /* SafariServices.framework in Frameworks */,
 				615030F0076DFC63D84A3299 /* Pods_Roy_Example.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -89,6 +92,7 @@
 		0F3F0EEABD8ADC7776A69084 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				558E78982070E60C00FB527D /* SafariServices.framework */,
 				E582328F4C8620621AC6DAF6 /* Pods_Roy_Example.framework */,
 				717E5EDAEED46BEBDFFD115F /* Pods_Roy_Tests.framework */,
 			);
@@ -323,6 +327,7 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-Roy_Tests/Pods-Roy_Tests-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/AuthPlugin/AuthPlugin.framework",
 				"${BUILT_PRODUCTS_DIR}/GRDB.swift/GRDB.framework",
 				"${BUILT_PRODUCTS_DIR}/Platform/Platform.framework",
 				"${BUILT_PRODUCTS_DIR}/Roy/Roy.framework",
@@ -330,6 +335,7 @@
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AuthPlugin.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GRDB.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Platform.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Roy.framework",
@@ -347,6 +353,7 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-Roy_Example/Pods-Roy_Example-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/AuthPlugin/AuthPlugin.framework",
 				"${BUILT_PRODUCTS_DIR}/GRDB.swift/GRDB.framework",
 				"${BUILT_PRODUCTS_DIR}/Platform/Platform.framework",
 				"${BUILT_PRODUCTS_DIR}/Roy/Roy.framework",
@@ -354,6 +361,7 @@
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AuthPlugin.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GRDB.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Platform.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Roy.framework",

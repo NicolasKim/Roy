@@ -10,7 +10,7 @@ import UIKit
 
 import Roy
 import Platform
-
+import AuthPlugin
 import UserPlugin
 
 
@@ -28,6 +28,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         RoyModuleConfig.sharedInstance.scheme = "roy"
         //addModule
         RoyAppDelegate.sharedInstance.addModuleClass(UserPluginDelegate.self)
+        RoyAppDelegate.sharedInstance.addModuleClass(AuthPluginDelegate.self)
         RoyAppDelegate.sharedInstance.addModuleClass(PlatformDelegate.self)
 		self.window = UIWindow(frame: UIScreen.main.bounds)
         return RoyAppDelegate.sharedInstance.application(application,didFinishLaunchingWithOptions:launchOptions)
@@ -60,6 +61,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         RoyAppDelegate.sharedInstance.applicationWillTerminate(application)
     }
 
+    func application(_ app: UIApplication, open url: URL, options: [UIApplicationOpenURLOptionsKey : Any] = [:]) -> Bool {
+        return RoyAppDelegate.sharedInstance.application(app, open: url, options: options)
+    }
+    
+    
 
 }
 

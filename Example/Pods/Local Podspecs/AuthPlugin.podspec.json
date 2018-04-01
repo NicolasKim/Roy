@@ -1,0 +1,27 @@
+{
+  "name": "AuthPlugin",
+  "version": "0.1.0",
+  "summary": "A short description of Platform.",
+  "description": "TODO: Add long description of the pod here.",
+  "homepage": "https://github.com/NicolasKim/AuthPlugin",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "NicolasKim": "jinqiucheng1006@live.cn"
+  },
+  "source": {
+    "git": "https://github.com/NicolasKim/AuthPlugin.git",
+    "tag": "0.1.0"
+  },
+  "dependencies": {
+    "Roy": [
+
+    ]
+  },
+  "platforms": {
+    "ios": "8.0"
+  },
+  "source_files": "Classes/**/*"
+}

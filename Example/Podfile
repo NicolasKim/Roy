@@ -7,10 +7,12 @@ target 'Roy_Example' do
   pod 'Roy', :path => '../'
   pod 'UserPlugin', :path => './UserPlugin'
   pod 'Platform', :path => './Platform'
+  pod 'AuthPlugin', :path => './AuthPlugin'
   target 'Roy_Tests' do
     inherit! :search_paths
 	pod 'UserPlugin', :path => './UserPlugin'
 	pod 'Platform', :path => './Platform'
+    pod 'AuthPlugin', :path => './AuthPlugin'
   end
 end
 

@@ -13,7 +13,9 @@ public class UserPluginDelegate:NSObject, RoyModuleProtocol {
     public required init(host: String) {
         moduleHost = host
         super.init()
-        _ = self.addRouter(path: "hahaha?c=<number>", viewController: FirstViewController.self, paramValidator: nil)
+        _ = self.addRouter(path: "hahaha?c=<number>", task: { params in
+            return UINavigationController(rootViewController: UserViewController(param: params)!)
+        }, paramValidator: nil)
     }
     public func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey : Any]? = nil) -> Bool {
         return true

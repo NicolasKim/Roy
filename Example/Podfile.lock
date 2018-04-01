@@ -1,4 +1,6 @@
 PODS:
+  - AuthPlugin (0.1.0):
+    - Roy
   - GRDB.swift (2.9.0)
   - Platform (0.1.0):
     - Roy
@@ -13,11 +15,14 @@ PODS:
     - Roy
 
 DEPENDENCIES:
+  - AuthPlugin (from `./AuthPlugin`)
   - Platform (from `./Platform`)
   - Roy (from `../`)
   - UserPlugin (from `./UserPlugin`)
 
 EXTERNAL SOURCES:
+  AuthPlugin:
+    :path: ./AuthPlugin
   Platform:
     :path: ./Platform
   Roy:
@@ -26,11 +31,12 @@ EXTERNAL SOURCES:
     :path: ./UserPlugin
 
 SPEC CHECKSUMS:
+  AuthPlugin: 835e7a57431fb7a640e3fd78c4fb1841f60a3767
   GRDB.swift: db8429f12d250f3056df82eb3409e5af083948ca
   Platform: 83ca8e6708e645c9d375ad2283e6354bb5d48525
   Roy: c1371329cae100b46311930c39edcc6eef8be35a
-  UserPlugin: 21b690fbe1d2db4c5aa7fea3c94c7312a9878e3a
+  UserPlugin: 840bb24391b799721b8e398252c83d7c8d5bf1b9
 
-PODFILE CHECKSUM: 211a65b4cf8f757b64e749b7adc6ada1f540426a
+PODFILE CHECKSUM: e002b4951c4fdbda053ccdbbdaf73bcd132953c7
 
 COCOAPODS: 1.4.0

@@ -25,10 +25,7 @@ class TMViewController: UITabBarController,RoyProtocol {
 
 
         self.setViewControllers(
-                urlsWithoutScheme: ["user/hahaha?c=1",
-                                    "user/hahaha?c=2",
-                                    "user/hahaha?c=3",
-                                    "user/hahaha?c=4"],
+                urlsWithoutScheme: ["user/hahaha?c=1"],
                 animated: true
         )
         _ = self.roy.addRouter(urlWithoutScheme: "platform/tabbar/index?i=<number>", paramValidator: nil) { params in
@@ -38,13 +35,6 @@ class TMViewController: UITabBarController,RoyProtocol {
             return nil
         }
 
-        self.perform(#selector(selectIndex), with: nil, afterDelay: 2)
-
-    }
-
-    @objc
-    func selectIndex() {
-        _ = self.roy.route(urlWithoutScheme: "platform/tabbar/index?i=1", param: nil)
     }
 
 

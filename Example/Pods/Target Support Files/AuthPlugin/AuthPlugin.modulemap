@@ -1,0 +1,6 @@
+framework module AuthPlugin {
+  umbrella header "AuthPlugin-umbrella.h"
+
+  export *
+  module * { export * }
+}

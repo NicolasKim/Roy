@@ -54,11 +54,12 @@ open class RoyAppDelegate : NSObject, UIApplicationDelegate,RoyDelegate {
     
     
     func enumerateMapBool(handle:(RoyModuleProtocol)->Bool) -> Bool {
-        var returnValue = true
         for (_,module) in moduleMap {
-            returnValue = returnValue && handle(module)
+            if handle(module) {
+                return true
+            }
         }
-        return returnValue
+        return false
     }
     
     func enumerateMapVoid(handle:(RoyModuleProtocol)->Void) -> Void {
@@ -143,17 +144,7 @@ open class RoyAppDelegate : NSObject, UIApplicationDelegate,RoyDelegate {
 
 
     public func application(_ app: UIApplication, open url: URL, options: [UIApplicationOpenURLOptionsKey : Any] = [:]) -> Bool {
-        return enumerateMapBool { (module) -> Bool in
-            if #available(iOS 9.0, *) {
-                guard let result = module.application?(app, open: url, options: options) else{
-                    return true
-                }
-                
-                return result;
-            } else {
-                return true
-            }
-        }
+        return RoyR.global.route(url: url, param: nil) as! Bool
     }
 
 
