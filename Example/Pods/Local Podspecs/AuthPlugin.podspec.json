@@ -18,6 +18,9 @@
   "dependencies": {
     "Roy": [
 
+    ],
+    "PromiseKit/Foundation": [
+
     ]
   },
   "platforms": {

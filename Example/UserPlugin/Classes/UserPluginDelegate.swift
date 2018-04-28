@@ -7,15 +7,20 @@
 
 import UIKit
 import Roy
+import PromiseKit
 
 public class UserPluginDelegate:NSObject, RoyModuleProtocol {
     public let moduleHost: String
     public required init(host: String) {
         moduleHost = host
         super.init()
-        _ = self.addRouter(path: "hahaha?c=<number>", task: { params in
-            return UINavigationController(rootViewController: UserViewController(param: params)!)
-        }, paramValidator: nil)
+        self.addRouter(path: "main?c=<number>", paramValidator: nil) { params in
+            return Promise<Any?>{ seal in
+                seal.fulfill(UINavigationController(rootViewController: UserViewController(param: params)!))
+            }
+        }.done{ _ in
+
+        }
     }
     public func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey : Any]? = nil) -> Bool {
         return true

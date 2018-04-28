@@ -9,9 +9,9 @@
 import UIKit
 
 import Roy
-import Platform
-import AuthPlugin
-import UserPlugin
+//import Platform
+//import AuthPlugin
+//import UserPlugin
 
 
 
@@ -25,45 +25,49 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         //set scheme
-        RoyModuleConfig.sharedInstance.scheme = "roy"
-        //addModule
-        RoyAppDelegate.sharedInstance.addModuleClass(UserPluginDelegate.self)
-        RoyAppDelegate.sharedInstance.addModuleClass(AuthPluginDelegate.self)
-        RoyAppDelegate.sharedInstance.addModuleClass(PlatformDelegate.self)
-		self.window = UIWindow(frame: UIScreen.main.bounds)
-        return RoyAppDelegate.sharedInstance.application(application,didFinishLaunchingWithOptions:launchOptions)
+//        RoyModuleConfig.sharedInstance.scheme = "roy"
+//        //addModule
+//        RoyAppDelegate.sharedInstance.addModuleClass(UserPluginDelegate.self)
+//        RoyAppDelegate.sharedInstance.addModuleClass(AuthPluginDelegate.self)
+//        RoyAppDelegate.sharedInstance.addModuleClass(PlatformDelegate.self)
+//        self.window = UIWindow(frame: UIScreen.main.bounds)
+//        return RoyAppDelegate.sharedInstance.application(application,didFinishLaunchingWithOptions:launchOptions)
+        
+        
+        return true
     }
 
     func applicationWillResignActive(_ application: UIApplication) {
         // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
         // Use this method to pause ongoing tasks, disable timers, and throttle down OpenGL ES frame rates. Games should use this method to pause the game.
-        RoyAppDelegate.sharedInstance.applicationWillResignActive(application)
+//        RoyAppDelegate.sharedInstance.applicationWillResignActive(application)
     }
 
     func applicationDidEnterBackground(_ application: UIApplication) {
         // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later.
         // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
-        RoyAppDelegate.sharedInstance.applicationDidEnterBackground(application)
+//        RoyAppDelegate.sharedInstance.applicationDidEnterBackground(application)
     }
 
     func applicationWillEnterForeground(_ application: UIApplication) {
         // Called as part of the transition from the background to the inactive state; here you can undo many of the changes made on entering the background.
-        RoyAppDelegate.sharedInstance.applicationWillEnterForeground(application)
+//        RoyAppDelegate.sharedInstance.applicationWillEnterForeground(application)
     }
 
     func applicationDidBecomeActive(_ application: UIApplication) {
         // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
-        RoyAppDelegate.sharedInstance.applicationDidBecomeActive(application)
+//        RoyAppDelegate.sharedInstance.applicationDidBecomeActive(application)
     }
 
     func applicationWillTerminate(_ application: UIApplication) {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
-        RoyAppDelegate.sharedInstance.applicationWillTerminate(application)
+//        RoyAppDelegate.sharedInstance.applicationWillTerminate(application)
     }
 
-    func application(_ app: UIApplication, open url: URL, options: [UIApplicationOpenURLOptionsKey : Any] = [:]) -> Bool {
-        return RoyAppDelegate.sharedInstance.application(app, open: url, options: options)
-    }
+//    @available(iOS 9.0, *)
+//    func application(_ app: UIApplication, open url: URL, options: [UIApplicationOpenURLOptionsKey : Any] = [:]) -> Bool {
+////        return RoyAppDelegate.sharedInstance.application(app, open: url, options: options)
+//    }
     
     
 

@@ -19,7 +19,7 @@
   },
   "default_subspecs": [
     "Core",
-    "UI"
+    "Extension"
   ],
   "frameworks": [
     "Foundation",
@@ -35,12 +35,15 @@
       "dependencies": {
         "GRDB.swift": [
 
+        ],
+        "PromiseKit/CorePromise": [
+
         ]
       }
     },
     {
-      "name": "UI",
-      "source_files": "Roy/Classes/UIKit/*.{swift}",
+      "name": "Extension",
+      "source_files": "Roy/Classes/Extension/*.{swift}",
       "dependencies": {
         "Roy/Core": [
 

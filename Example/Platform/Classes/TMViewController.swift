@@ -23,9 +23,9 @@ class TMViewController: UITabBarController,RoyProtocol {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-
         self.setViewControllers(
-                urlsWithoutScheme: ["user/hahaha?c=1"],
+                urlsWithoutScheme: ["user/main?c=1",
+                                    "user/main?c=1"],
                 animated: true
         )
         _ = self.roy.addRouter(urlWithoutScheme: "platform/tabbar/index?i=<number>", paramValidator: nil) { params in

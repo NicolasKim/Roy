@@ -7,38 +7,34 @@
 
 import UIKit
 import Roy
+import PromiseKit
 
 
 
 public class AuthPluginDelegate:NSObject, RoyModuleProtocol {
     public let moduleHost: String
     let gitHubAuth = GitHub()
+    let sem = DispatchSemaphore(value: 0)
     public required init(host: String) {
         moduleHost = host
         super.init()
         
-        _ = self.addRouter(
-            path: "github/login",
-            task: { (params) -> Any? in
-                if let p = params, let callback = p["callback"] as? (_ userInfo:Dictionary<String,Any>?,_ error:Error?)->Void {
-                	self.gitHubAuth.login(callback: callback)
+        
+        firstly {
+            return self.addRouter(path: "github/login", paramValidator: nil) { _ in self.gitHubAuth.login() }
+        }.then { (module) -> Promise<RoyModuleProtocol> in
+            return module.addRouter(path: "github", paramValidator: nil) { (params) -> Promise<Any?>? in
+                if let p = params , let code = p["code"] as? String {
+                    self.gitHubAuth.didCodeBack(code: code)
+                }
+                else{
+                    self.gitHubAuth.didCodeBack(code: nil)
                 }
                 return nil
-        	},
-            paramValidator: nil)
-        
-        
-        _ = self.addRouter(
-            	path: "github",
-            	task: { (params) -> Any? in
-            		if let p = params , let code = p["code"] as? String {
-                        self.gitHubAuth.getAccessToken(code: code, callback: { (token, error) in
-                            print(token,error)
-                        })
-                    }
-                    return true
-        		},
-            	paramValidator: nil)
+            }
+        }.done { _ in
+            
+        }
     }
     public static func host() -> String {
         return "auth"
@@ -47,9 +43,11 @@ public class AuthPluginDelegate:NSObject, RoyModuleProtocol {
         return .Lazily
     }
     
-//    public func application(_ app: UIApplication, open url: URL, options: [UIApplicationOpenURLOptionsKey : Any] = [:]) -> Bool {
-//        _ = RoyR.global.route(url: url, param: nil)
-//        return true
-//    }
+    public func application(_ app: UIApplication, open url: URL, options: [UIApplicationOpenURLOptionsKey : Any] = [:]) -> Bool {
+        RoyR.global.route(url: url, param: nil, in: nil).done{_ in }
+        return true
+    }
+    
+    
     
 }

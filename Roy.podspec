@@ -14,13 +14,14 @@ Pod::Spec.new do |s|
   s.author           = 'jinqiucheng1006@live.cn'
   s.source           = { :git => 'https://github.com/NicolasKim/Roy.git', :branch => s.version.to_s }
   s.ios.deployment_target = '8.0'
-  s.default_subspecs = 'Core', 'UI'
+  s.default_subspecs = 'Core', 'Extension'
   s.subspec 'Core' do |cs|
   	cs.source_files = 'Roy/Classes/Core/*.{swift}'
     cs.dependency 'GRDB.swift'
+    cs.dependency 'PromiseKit/CorePromise'
   end
-  s.subspec 'UI' do |cs|
-      cs.source_files = 'Roy/Classes/UIKit/*.{swift}'
+  s.subspec 'Extension' do |cs|
+      cs.source_files = 'Roy/Classes/Extension/*.{swift}'
       cs.dependency 'Roy/Core'
   end
   s.frameworks = 'Foundation','UIKit'

@@ -30,6 +30,8 @@ TODO: Add long description of the pod here.
   
   s.dependency 'Roy'
   s.dependency 'SnapKit','~> 4.0.0'
+  
+  
   s.ios.deployment_target = '8.0'
 
   s.source_files = 'Classes/**/*'
